@@ -1,0 +1,49 @@
+    <div class="pagina">
+    <div *ngFor="let competitie of competitiiUnice" class="comp">
+
+
+        <h2 class="competitie-detalii">{{ competitie.numeCompetitie }} (
+            {{ competitie.dataStart|date:"d/M/Y"}}
+            <span *ngIf="!sameDates(competitie.dataStart,competitie.dataFinal)">
+                - {{competitie.dataFinal|date:"d/M/Y"}}
+            </span>)
+        </h2>
+        <div class="comp-indiv">
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Probă</th>
+                        <th scope="col">Timp Total</th>
+                        <th scope="col">ÎNOT</th>
+                        <th scope="col">TRANZIT1</th>
+                        <th scope="col">CICLISM</th>
+                        <th scope="col">TRANZIT2</th>
+                        <th scope="col">ALERGARE</th>
+                        <th scope="col">Loc General</th>
+                        <th scope="col">Loc Gen</th>
+                        <th scope="col">Loc Categorie</th>
+                        <th scope="col">Puncte</th>
+                    </tr>
+                </thead>
+                <tbody style="font-weight: bold;">
+                    <tr *ngFor="let istoric of getIstoriceComp(competitie)">
+                        <td> {{istoric.numeProba}}</td>
+                        <td> {{istoric.timpTotal}}</td>
+                        <td> {{istoric.timpInot}}</td>
+                        <td> {{istoric.timpTranzit1}}</td>
+                        <td> {{istoric.timpCiclism}}</td>
+                        <td> {{istoric.timpTranzit2}}</td>
+                        <td> {{istoric.timpAlergare}}</td>
+                        <td> {{istoric.locPesteToti}}</td>
+                        <td> {{istoric.locPerGen}}</td>
+                        <td> {{istoric.locPerCatetogrie}}</td>
+                        <td> {{istoric.puncte}} </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<p>.</p>

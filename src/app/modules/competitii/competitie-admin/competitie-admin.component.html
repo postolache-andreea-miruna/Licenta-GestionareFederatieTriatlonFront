@@ -1,0 +1,537 @@
+<div class="background"></div>
+<app-admin-navbar></app-admin-navbar>
+<p>.</p>
+<p>.</p>
+<div style="display: block; margin-top: 6%; margin-left: 4%; text-align: center;">
+    <h3 style="color: black; font-weight: bold;">Competiții și Locații</h3>
+    <ng-template #content let-modal>
+        <div class="modal-header">
+            <h4 class="modal-title">Adaugă competiție</h4>
+            <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+        </div>
+        <div class="modal-body">
+            <div class="profil-detalii2">
+                <ng-container>
+                    <main class="form-fisa">
+                        <form [formGroup]="AddCompetitieForm" (ngSubmit)="saveAddComp()" autocomplete="off"
+                            class="p-1 border">
+                            <div class="detalii" style="place-items: center;">
+                                <div style="margin-left: 4%;">
+                                    <div class="form-floating mb-3">
+                                        <input formControlName="numeCompetitie" type="text" class="form-control"
+                                            placeholder="nume competiție">
+                                        <label for="nume">Nume Competiție<span class="required">*</span></label>
+                                    </div>
+
+                                    <div class="form-floating mb-3">
+                                        <input formControlName="taxaParticipare" type="text" class="form-control"
+                                            placeholder="taxă">
+                                        <label for="nume">Taxă participare<span class="required">*</span></label>
+                                    </div>
+                                    <br>
+                                    <div class="form-floating mb-3">
+                                        <input formControlName="paginaOficialaCompetitie" type="text"
+                                            class="form-control" placeholder="taxă">
+                                        <label for="nume">Pagina oficială</label>
+                                    </div>
+                                    <select class="select" formControlName="codTip" style="font-size: 120%;">
+                                        <option value="0" disabled selected> Tipuri<span class="required">*</span>
+                                        </option>
+                                        <option *ngFor="let tip of tipuriNumeCod" [value]="tip.codTip">
+                                            {{tip.tipCompetitie}}
+                                        </option>
+                                    </select>
+                                    <div class="form-floating mb-3">
+                                        <input formControlName="codLocatie" type="text" class="form-control"
+                                            placeholder="Cod Locație">
+                                        <label for="codLocatie">Cod locație<span class="required">*</span></label>
+                                    </div>
+                                </div>
+
+                                <div style="margin-left: 4%;">
+                                    <div style="display: flex;flex-direction: row;">
+
+                                        <div style="display: block;margin-right: 10%;">
+                                            <p>Ziua de start a competiție</p>
+                                            <div>
+                                                <label>Oră start<span class="required">*</span></label>
+                                                <ngb-timepicker [(ngModel)]="timeStart" [seconds]="true"
+                                                    [ngModelOptions]="{standalone: true}"></ngb-timepicker>
+                                            </div>
+
+                                            <label>Dată start<span class="required">*</span></label>
+                                            <form class="row row-cols-sm-auto">
+                                                <div class="col-12">
+                                                    <div class="input-group">
+                                                        <input class="form-control" placeholder="yyyy-mm-dd" name="dp"
+                                                            [(ngModel)]="dataStart" ngbDatepicker #d="ngbDatepicker" />
+                                                        <button class="dataStart" (click)="d.toggle()" type="button">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                                                height="16" fill="currentColor" class="bi bi-calendar3"
+                                                                viewBox="0 0 16 16">
+                                                                <path
+                                                                    d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857V3.857z" />
+                                                                <path
+                                                                    d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
+                                                            </svg>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </form>
+
+                                        </div>
+
+
+                                        <div style="display: block; ">
+                                            <p>Ziua finală a competiție</p>
+                                            <div>
+                                                <label>Oră finalizare<span class="required">*</span></label>
+                                                <ngb-timepicker [(ngModel)]="timeFinal" [seconds]="true"
+                                                    [ngModelOptions]="{standalone: true}"></ngb-timepicker>
+                                            </div>
+
+                                            <label>Dată finalizare<span class="required">*</span></label>
+                                            <form class="row row-cols-sm-auto">
+                                                <div class="col-12">
+                                                    <div class="input-group">
+                                                        <input class="form-control" placeholder="yyyy-mm-dd" name="dp"
+                                                            [(ngModel)]="dataFinal" ngbDatepicker #di="ngbDatepicker" />
+                                                        <button class="dataFinal" (click)="di.toggle()" type="button">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                                                height="16" fill="currentColor" class="bi bi-calendar3"
+                                                                viewBox="0 0 16 16">
+                                                                <path
+                                                                    d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857V3.857z" />
+                                                                <path
+                                                                    d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
+                                                            </svg>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-grid mt-4 px-4">
+                                <button class="btn btn-warning" type="submit"
+                                    style="font-weight: bold; margin-left:20%; margin-right: 20%;"
+                                    [disabled]="!isFormComplete">Adaugă</button>
+                            </div>
+
+                        </form>
+                    </main>
+                </ng-container>
+            </div>
+        </div>
+    </ng-template>
+
+
+
+    <ng-template #contentLocatie let-modal>
+        <div class="modal-header">
+            <h4 class="modal-title">Adaugă locație</h4>
+            <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+        </div>
+        <div class="modal-body">
+            <div class="profil-detalii2">
+                <ng-container>
+                    <main class="form-fisa">
+                        <form [formGroup]="AddLocatieForm" (ngSubmit)="saveAddLocatie()" autocomplete="off"
+                            class="p-1 border">
+                            <div class="detalii" style="place-items: center;">
+                                <div style="margin-left: 4%;">
+                                    <div class="form-floating mb-3">
+                                        <input formControlName="tara" type="text" class="form-control"
+                                            placeholder="Țara">
+                                        <label for="tara">Țara<span class="required">*</span></label>
+                                    </div>
+
+                                    <div class="form-floating mb-3">
+                                        <input formControlName="oras" type="text" class="form-control"
+                                            placeholder="Oraș">
+                                        <label for="oras">Oraș<span class="required">*</span></label>
+                                    </div>
+                                    <br>
+
+                                    <div class="form-floating mb-3">
+                                        <input formControlName="strada" type="text" class="form-control"
+                                            placeholder="Strada">
+                                        <label for="strada">Strada</label>
+                                    </div>
+
+                                    <div class="form-floating mb-3">
+                                        <input formControlName="numarStrada" type="text" class="form-control"
+                                            placeholder="Număr Strada">
+                                        <label for="numarStrada">Număr Strada</label>
+                                    </div>
+
+
+
+
+                                </div>
+
+                                <div style="margin-left: 4%;">
+                                    <div>
+                                        <p style="font-size: 120%;font-weight: bold;">Detalii suplimentare</p>
+                                        <textarea cols="40" rows="8" formControlName="detaliiSuplimentare"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-grid mt-4 px-4">
+                                <button class="btn btn-warning" type="submit"
+                                    style="font-weight: bold; margin-left:20%; margin-right: 20%;"
+                                    [disabled]="!isFormLocatieComplete">Adaugă</button>
+                            </div>
+
+                        </form>
+                    </main>
+                </ng-container>
+            </div>
+        </div>
+    </ng-template>
+
+
+
+
+    <div style="display: flex;flex-direction: row;">
+        <button class="custom-btn btn-1" style="top:0;margin-left: 39%;margin-right: 2%;" type="button" placement="end"
+            triggers="mouseenter:mouseleave" (click)="modalAdCompetitie(content)">
+            Adaugă Competiție
+        </button>
+
+        <button class="custom-btn btn-1" style="top:0;" type="button" placement="end" triggers="mouseenter:mouseleave"
+            (click)="modalAdLocatie(contentLocatie)">
+            Adaugă Locație
+        </button>
+
+    </div>
+
+
+
+</div>
+
+
+
+
+<ng-template #contentEdit let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Editare</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <div>
+            <ng-container>
+                <main>
+                    <form [formGroup]="EditCompetitieForm" (ngSubmit)="saveUpdateCompetitie()" autocomplete="off"
+                        class="p-1 border">
+                        <div class="detalii" style="place-items: center;">
+
+                            <div style="margin-left: 4%;">
+
+
+                                <div class="form-floating mb-3">
+                                    <input formControlName="numeCompetitie" type="text" class="form-control"
+                                        placeholder="nume competiție">
+                                    <label for="numeCompetitie">Nume Competiție</label>
+                                </div>
+
+                                <div class="form-floating mb-3">
+                                    <input formControlName="taxaParticipare" type="text" class="form-control"
+                                        placeholder="taxă">
+                                    <label for="taxaParticipare">Taxă participare</label>
+                                </div>
+
+                                <br>
+
+                                <div class="form-floating mb-3">
+                                    <input formControlName="paginaOficialaCompetitie" type="text" class="form-control"
+                                        placeholder="taxă">
+                                    <label for="paginaOficialaCompetitie">Pagina oficială</label>
+                                </div>
+
+                                <label for="statusCompetitie">Status</label>
+                                <select class="select" formControlName="statusCompetitie" style="font-size: 100%;margin-bottom: 10%;">
+									<option value="activa">Activă</option>
+                                    <option value="anulata">Anulată</option>
+									
+								</select>
+
+                                <div class="form-floating mb-3">
+                                    <input formControlName="codLocatie" type="text" class="form-control"
+                                        placeholder="Cod Locație">
+                                    <label for="codLocatie">Cod locație</label>
+                                </div>
+                            </div>
+
+                            <div style="margin-left: 4%;">
+                                <div style="display: flex;flex-direction: row;">
+
+                                    <div style="display: block;margin-right: 10%;">
+                                        <p>Ziua de start a competiție</p>
+                                        <div>
+                                            <label>Oră start<span class="required">*</span></label>
+                                            <ngb-timepicker [(ngModel)]="timeEStart" [seconds]="true"
+                                                 [ngModelOptions]="{standalone: true}"></ngb-timepicker>
+                                        </div>
+
+                                        <label>Dată start<span class="required">*</span></label>
+                                        <form class="row row-cols-sm-auto">
+                                            <div class="col-12">
+                                                <div class="input-group">
+                                                    <input class="form-control" placeholder="yyyy-mm-dd" name="dp"
+                                                        [(ngModel)]="dataEStart" ngbDatepicker #dse="ngbDatepicker" />
+                                                    <button class="dataStart" (click)="dse.toggle()" type="button">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                            fill="currentColor" class="bi bi-calendar3"
+                                                            viewBox="0 0 16 16">
+                                                            <path
+                                                                d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857V3.857z" />
+                                                            <path
+                                                                d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </form>
+
+                                    </div>
+
+
+                                    <div style="display: block; ">
+                                        <p>Ziua finală a competiție</p>
+                                        <div>
+                                            <label>Oră finalizare<span class="required">*</span></label>
+                                            <ngb-timepicker [(ngModel)]="timeEFinal" [seconds]="true"
+                                                [ngModelOptions]="{standalone: true}"></ngb-timepicker>
+                                        </div>
+
+                                        <label>Dată finalizare<span class="required">*</span></label>
+                                        <form class="row row-cols-sm-auto">
+                                            <div class="col-12">
+                                                <div class="input-group">
+                                                    <input class="form-control" placeholder="yyyy-mm-dd" name="dp"
+                                                        [(ngModel)]="dataEFinal" ngbDatepicker #dis="ngbDatepicker" />
+                                                    <button class="dataFinal" (click)="dis.toggle()" type="button">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                            fill="currentColor" class="bi bi-calendar3"
+                                                            viewBox="0 0 16 16">
+                                                            <path
+                                                                d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857V3.857z" />
+                                                            <path
+                                                                d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-grid mt-4 px-4">
+                            <button class="btn btn-warning" type="submit"
+                                style="font-weight: bold; margin-left:20%; margin-right: 20%;"
+                                [disabled]="!isEditFormComplete">Modifică</button>
+                        </div>
+                    </form>
+                </main>
+            </ng-container>
+        </div>
+    </div>
+
+</ng-template>
+
+
+
+
+
+
+
+<div style="display: flex;flex-direction: row;">
+
+
+    <div class="competitii">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Competiție</th>
+                    <th>Taxă Participare</th>
+                    <th>Dată Start</th>
+                    <th>Dată Final</th>
+                    <th>Pagină oficială</th>
+                    <th>Status</th>
+                    <th>Cod Locație</th>
+                    <th>Tip</th>
+                    <th>Editare</th>
+                    <th>Despre</th>
+                  
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let competitie of competitii">
+
+                    <td>{{competitie.numeCompetitie}}</td>
+
+                    <td>{{competitie.taxaParticipare}}</td>
+                    <td>{{competitie.dataStart|date:"d/M/Y"}} ora:{{competitie.dataStart|date:"H:m"}}</td>
+
+                    <td>{{competitie.dataFinal|date:"d/M/Y"}} ora:{{competitie.dataFinal|date:"H:m"}}</td>
+
+                    <td><a href="{{competitie.paginaOficialaCompetitie}}">{{competitie.paginaOficialaCompetitie}}</a></td>
+
+                    <td>{{competitie.statusCompetitie}}</td>
+
+                    <td>{{competitie.codLocatie}}</td>
+
+                    <td>{{competitie.tipCompetitie}}</td>
+
+
+                    <td
+                        (click)="editCompetitieForm(contentEdit,competitie.codCompetitie,competitie.numeCompetitie,competitie.taxaParticipare,competitie.dataStart,competitie.dataFinal,competitie.paginaOficialaCompetitie,competitie.statusCompetitie,competitie.codLocatie)">
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                            class="bi bi-pencil-square" viewBox="0 0 16 16">
+                            <path
+                                d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                            <path fill-rule="evenodd"
+                                d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+                        </svg>
+                    </td>
+                    <td
+                    (click)="goToCompetitieId(competitie.codCompetitie)">
+
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-patch-question" viewBox="0 0 16 16">
+                        <path d="M8.05 9.6c.336 0 .504-.24.554-.627.04-.534.198-.815.847-1.26.673-.475 1.049-1.09 1.049-1.986 0-1.325-.92-2.227-2.262-2.227-1.02 0-1.792.492-2.1 1.29A1.71 1.71 0 0 0 6 5.48c0 .393.203.64.545.64.272 0 .455-.147.564-.51.158-.592.525-.915 1.074-.915.61 0 1.03.446 1.03 1.084 0 .563-.208.885-.822 1.325-.619.433-.926.914-.926 1.64v.111c0 .428.208.745.585.745z"/>
+                        <path d="m10.273 2.513-.921-.944.715-.698.622.637.89-.011a2.89 2.89 0 0 1 2.924 2.924l-.01.89.636.622a2.89 2.89 0 0 1 0 4.134l-.637.622.011.89a2.89 2.89 0 0 1-2.924 2.924l-.89-.01-.622.636a2.89 2.89 0 0 1-4.134 0l-.622-.637-.89.011a2.89 2.89 0 0 1-2.924-2.924l.01-.89-.636-.622a2.89 2.89 0 0 1 0-4.134l.637-.622-.011-.89a2.89 2.89 0 0 1 2.924-2.924l.89.01.622-.636a2.89 2.89 0 0 1 4.134 0l-.715.698a1.89 1.89 0 0 0-2.704 0l-.92.944-1.32-.016a1.89 1.89 0 0 0-1.911 1.912l.016 1.318-.944.921a1.89 1.89 0 0 0 0 2.704l.944.92-.016 1.32a1.89 1.89 0 0 0 1.912 1.911l1.318-.016.921.944a1.89 1.89 0 0 0 2.704 0l.92-.944 1.32.016a1.89 1.89 0 0 0 1.911-1.912l-.016-1.318.944-.921a1.89 1.89 0 0 0 0-2.704l-.944-.92.016-1.32a1.89 1.89 0 0 0-1.912-1.911l-1.318.016z"/>
+                        <path d="M7.001 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0z"/>
+                      </svg>
+                </td>
+                   
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <ng-template #contentEditLocatie let-modal>
+        <div class="modal-header">
+            <h4 class="modal-title">Modifică locație</h4>
+            <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+        </div>
+        <div class="modal-body">
+            <div class="profil-detalii2">
+                <ng-container>
+                    <main class="form-fisa">
+                        <form [formGroup]="EditLocatieForm" (ngSubmit)="saveUpdateLocatie()" autocomplete="off"
+                            class="p-1 border">
+                            <div class="detalii" style="place-items: center;">
+                                <div style="margin-left: 4%;">
+                                    <div class="form-floating mb-3">
+                                        <input formControlName="tara" type="text" class="form-control"
+                                            placeholder="Țara">
+                                        <label for="tara">Țara</label>
+                                    </div>
+
+                                    <div class="form-floating mb-3">
+                                        <input formControlName="oras" type="text" class="form-control"
+                                            placeholder="Oraș">
+                                        <label for="oras">Oraș</label>
+                                    </div>
+                                    <br>
+
+                                    <div class="form-floating mb-3">
+                                        <input formControlName="strada" type="text" class="form-control"
+                                            placeholder="Strada">
+                                        <label for="strada">Strada</label>
+                                    </div>
+
+                                    <div class="form-floating mb-3">
+                                        <input formControlName="numarStrada" type="text" class="form-control"
+                                            placeholder="Număr Strada">
+                                        <label for="numarStrada">Număr Strada</label>
+                                    </div>
+
+
+
+
+                                </div>
+
+                                <div style="margin-left: 4%;">
+                                    <div>
+                                        <p style="font-size: 120%;font-weight: bold;">Detalii suplimentare</p>
+                                        <textarea cols="40" rows="8" formControlName="detaliiSuplimentare"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-grid mt-4 px-4">
+                                <button class="btn btn-warning" type="submit"
+                                    style="font-weight: bold; margin-left:20%; margin-right: 20%;"
+                                    [disabled]="!isEditLocatieFormComplete">Modifică</button>
+                            </div>
+
+                        </form>
+                    </main>
+                </ng-container>
+            </div>
+        </div>
+    </ng-template>
+
+
+
+
+    <div class="locatii">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Cod Locație</th>
+                    <th>Țara</th>
+                    <th>Oraș </th>
+                    <th>Strada </th>
+                    <th>Număr Stradă</th>
+                    <th>Detalii Suplimentare</th>
+                    <th>Editare</th>
+                    <th>Șterge</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let locatie of locatii">
+
+                    <td>{{locatie.codLocatie}}</td>
+
+                    <td>{{locatie.tara}}</td>
+                    <td>{{locatie.oras}}</td>
+
+                    <td>{{locatie.strada}}</td>
+
+                    <td>{{ locatie.numarStrada == 0 ? ' ' : locatie.numarStrada }}</td>
+
+
+                    <td>{{locatie.detaliiSuplimentare}}</td>
+
+                    <td (click)="editLocatieForm(contentEditLocatie,locatie.codLocatie,locatie.tara,locatie.oras,locatie.strada,locatie.numarStrada,locatie.detaliiSuplimentare)" > 
+                
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                            class="bi bi-pencil-square" viewBox="0 0 16 16">
+                            <path
+                                d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                            <path fill-rule="evenodd"
+                                d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+                        </svg>
+                    </td>
+
+                    <td (click)="deleteLocatie(locatie.codLocatie)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                            <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
+                          </svg>
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+
+</div>

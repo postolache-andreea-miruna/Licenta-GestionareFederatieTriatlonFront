@@ -1,0 +1,119 @@
+<div class="background"></div>
+<app-admin-navbar></app-admin-navbar>
+<p>.</p>
+<p>.</p>
+<div style="display: block; margin-top: 6%; margin-left: 4%; text-align: center;">
+    <h3 style="color: black; font-weight: bold;">Tipuri</h3>
+    <ng-template #content let-modal>
+        <div class="modal-header">
+            <h4 class="modal-title">Adaugă Tip</h4>
+            <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+        </div>
+        <div class="modal-body">
+            <div class="profil-detalii2">
+                <ng-container>
+                    <main class="form-fisa">
+                        <form [formGroup]="AddTipForm" (ngSubmit)="saveAdd()" autocomplete="off" class="p-1 border">
+                            <div class="pozele">
+                                <br>
+								<div class="form-floating mb-3">
+									<input formControlName="tipCompetitie" type="text" class="form-control" placeholder="Tip Competiție">
+									<label for="tipCompetitie">Tip competiție<span class="required">*</span></label>
+								  </div>
+
+								<div class="form-floating mb-3">
+									<input formControlName="numarMinimParticipanti" type="text" class="form-control" placeholder="nr minin">
+									<label for="numarMinimParticipanti">Număr minim participanți<span class="required">*</span></label>
+								  </div>
+
+                            </div>
+                            <div class="d-grid mt-4 px-4">
+                                <button class="btn btn-warning" type="submit"
+                                    style="font-weight: bold; margin-left:20%; margin-right: 20%;" [disabled]="!isAddFormComplete">Adaugă</button>
+                            </div>
+                        </form>
+                    </main>
+                </ng-container>
+            </div>
+        </div>
+    </ng-template>
+
+
+    <button class="adaugare-tip" style="top:0;" type="button" placement="end" triggers="mouseenter:mouseleave"
+        ngbPopover="Adaugă un tip" (click)="modalAdTip(content)">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="black" class="bi bi-plus-square"
+            viewBox="0 0 16 16">
+            <path
+                d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+            <path
+                d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+        </svg>
+    </button>
+</div>
+
+
+
+
+
+<ng-template #contentEdit let-modal>
+	<div class="modal-header">
+	  <h4 class="modal-title">Editare</h4>
+	  <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+	  <div>
+		<ng-container>
+		  <main>
+			<form [formGroup]="EditTipForm" (ngSubmit)="saveUpdateTip()" autocomplete="off" class="p-1 border">
+			  <div class="detalii" style="place-items: center;">
+				<div style="margin-left: 4%;">
+  
+				  <br>
+				  <div class="form-floating mb-3">
+					<input formControlName="numarMinimParticipanti" type="text" class="form-control" placeholder="numarMinimParticipanti">
+					<label for="numarMinimParticipanti">Număr minim participanți</label>
+				  </div> 
+  
+				</div>
+  
+			  </div>
+  
+			  <div class="d-grid mt-4 px-4">
+				<button class="btn btn-warning" type="submit"
+				  style="font-weight: bold;  margin-left:20%; margin-right: 20%;"[disabled]="!isEditFormComplete">Modifică</button>
+			  </div>
+			</form>
+		  </main>
+		</ng-container>
+	  </div>
+	</div>
+  
+  </ng-template>
+
+
+
+
+<div class="tipuri">
+    <table class="table table-hover">
+		<thead>
+		  <tr>
+			<th>Tip</th>
+			<th>Număr minim participanți</th>
+			<th>Editare</th>
+		  </tr>
+		</thead>
+		<tbody>
+		  <tr *ngFor="let tip of tipuri">
+			<td>{{tip.tipCompetitie}}</td>
+			<td>{{tip.numarMinimParticipanti}}</td>
+			 <td (click)="editForm(contentEdit,tip.codTip,tip.numarMinimParticipanti)"> 
+            
+			  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+				<path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+				<path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+			  </svg>
+			</td>
+		  </tr>
+		</tbody>
+	  </table>
+</div>

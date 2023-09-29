@@ -1,0 +1,165 @@
+<div class="background"></div>
+<app-navbar></app-navbar>
+<p>.</p>
+<p class="nume-prenume">
+	{{sportivId.nume}}
+	{{sportivId.prenume}}
+</p>
+<div class="profil-id">
+	<img class="imag" src="{{sportivId.urlPozaProfil}}" alt="{{sportivId.nume}} {{sportivId.prenume}}">
+	<div class="details">
+		<p>Nume de familie: {{sportivId.nume}}</p>
+		<p>Prenume: {{sportivId.prenume}}</p>
+		<p>Gen: {{sportivId.gen}}</p>
+		<p>An naștere: {{sportivId.anNastere}}</p>
+		<hr>
+		<p>Club: {{sportivId.numeClub}}</p>
+		<p>Legitimație: {{sportivId.numarLegitimatie}}</p>
+		<hr>
+		<p>Antrenor: {{sportivId.numeAntrenor}} {{sportivId.prenumeAntrenor}}</p>
+		<hr>
+		<p>Abonare: {{sportivId.abonareStiri}}</p>
+	</div>
+</div>
+<div class="profil-detalii">
+<button class="custom-btn btn-1" (click)="postarileMele(nenulEmail())" style="margin-left: 45%;margin-top: 2%;">Postările mele</button>
+<button class="custom-btn btn-1" (click)="editSportivInfo(contentEdit)" style="margin-left: 2%;">Editare
+    profil</button>
+	</div>
+	
+<div class="profil-detalii">
+
+	<button class="custom-btn btn-1" (click)="detaliiAntrenor(sportivId.emailAntrenor)">Antrenorul meu</button>
+	<button class="custom-btn2 btn-1" (click)="completareForm()" [disabled]="buttonDisabled">Completează fișa anuală</button>
+	<button class="custom-btn btn-1" (click)="formulare(nenulEmail())">Fișele mele</button>
+	<button class="custom-btn btn-1" (click)="competitii(nenulEmail())" *ngIf="competitiileSp.length > 0">Competițiile mele</button>
+	<button type="button" class="custom-btn btn-2" placement="bottom" ngbPopover="Nu ai participat la competiții"
+		triggers="mouseenter:mouseleave" *ngIf="competitiileSp.length === 0">Competițiile mele </button>
+
+	<button class="custom-btn btn-1" (click)="recenzii(nenulEmail())">Recenziile mele</button>
+
+</div>
+<ng-template #contentEdit let-modal>
+	<div class="modal-header">
+	  <h4 class="modal-title">Editare Profil</h4>
+	  <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+	  <div>
+		<ng-container>
+		  <main class="form-fisa">
+			<form [formGroup]="sportivEditForm" (ngSubmit)="saveUpdateSportiv()" autocomplete="off" class="p-1 border">
+			  <div class="detalii" style="place-items: center;">
+				<div style="margin-left: 4%;">
+  
+				  <br>
+				  <p style="font-weight: bold;">Poza de profil actuală</p>
+				  <img src="{{sportivId.urlPozaProfil}}" width="200px" height="200px" style="margin-bottom: 4%;">
+  
+  
+				  <div>
+					<label for="fisier"style="font-weight: bold;">Schimbă poza de profil</label>
+					<input class="fisier" type="file" formControlName="urlPozaProfil" (change)="onFileSelected($event)">
+				  </div>
+				  <br>
+  
+  
+				</div>
+				
+  
+				<div style="margin-right: 20%;">
+				  <label for="nume"style="font-weight: bold;">Nume</label>
+				  <div class="form-floating mb-3">
+					<input style="font-size: 110%;" formControlName="nume" type="text" class="form-control" placeholder="nume">
+				  </div>
+  
+				  <label for="prenume"style="font-weight: bold;">Prenume</label>
+				  <div class="form-floating mb-3">
+					<input  style="font-size: 110%;"  formControlName="prenume" type="text" class="form-control" placeholder="prenume">
+				  </div>
+  
+				  <p class="abonare"style="font-weight: bold;">Abonare știri</p>
+				  <input type="radio" formControlName="abonareStiri" value="true" />Da
+				  <input type="radio" formControlName="abonareStiri" value="false" />Nu
+				  <br>
+				  <br>
+  
+				  <p style="font-weight: bold;">Vrei să te muți la alt club?</p>
+				  <select class="select" formControlName="numeClub" style="font-size: 120%;">
+					<option  style="font-size: 110%;" *ngFor="let club of cluburi" [value]="club">{{club}}</option>
+				  </select>
+				  
+				  <br>
+				  <br>
+
+				  <label for="antrenorNou"style="font-weight: bold;">Email antrenor nou</label>
+				  <div class="form-floating mb-3" style="width: max-content;">
+				  	<input  style="font-size: 105%;"  formControlName="antrenorNou" type="text" class="form-control" placeholder="antrenorNou">
+				  </div>
+
+				</div>
+
+				
+  
+  
+  
+			  </div>
+  
+			  <div class="d-grid mt-4 px-4">
+				<button class="custom-btn btn-1" type="submit"
+				  style="font-weight: bold;  margin-left:20%; margin-right: 20%;">Modifică</button>
+			  </div>
+			</form>
+		  </main>
+		</ng-container>
+	  </div>
+	</div>
+  </ng-template>
+
+
+
+<div class="profil-detalii2" *ngIf="afisareForm">
+	<ng-container>
+		<main class="form-fisa">
+			<form [formGroup]="fisaAddForm" (ngSubmit)="saveAdd()" autocomplete="off" class="p-3 border">
+				<div class="pozele">
+					<div>
+						<p>Poza profil<span class="required">*</span></p>
+						<input class="fisier" type="file" formControlName="pozaDeProfil" accept=".jpg,.png"
+							(change)="selectPozaProfil($event)">
+					</div>
+					<br>
+					<div>
+						<p>Aviz Medical<span class="required">*</span></p>
+						<input class="fisier" type="file" formControlName="avizMedical" accept=".jpg,.png"
+							(change)="selectAviz($event)">
+					</div>
+					<br>
+					<div>
+						<p>Buletin/Certificat de naștere<span class="required">*</span></p>
+						<input class="fisier" type="file" formControlName="buletin_CertificatNastere" accept=".jpg,.png"
+							(change)="selectBuletinCertificat($event)">
+					</div>
+					<br>
+				</div>
+
+				<div class="d-grid mt-4 px-4">
+					<button class="btn btn-warning" type="submit"
+						style="font-weight: bold; margin-left:20%; margin-right: 20%;"
+						[disabled]="!isFormComplete">Completare</button>
+				</div>
+			</form>
+		</main>
+	</ng-container>
+</div>
+
+
+<div class="containerul">
+	<button class="btnul btn-3" (click)="openBestOf()">BEST OF</button>
+	<button class="btnul btn-3" (click)="openIsto()">ISTORIC</button>
+</div>
+
+<div>
+	<app-best-of *ngIf="showBestOf === true"></app-best-of>
+	<app-istoric-sportiv *ngIf="showIstoric === true"></app-istoric-sportiv>
+</div>

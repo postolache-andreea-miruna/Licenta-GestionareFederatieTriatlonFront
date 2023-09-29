@@ -1,0 +1,22 @@
+<div class="background"></div>
+<p>.</p>
+<p>.</p>
+<h2 class="title">Cluburi</h2>
+  <app-navbar></app-navbar>
+<div class="cluburi">
+    <div *ngFor="let club of cluburi">
+        <div class="clubul">
+            <div class="image-container">
+                <img src="{{club.urlPozaClub}}" height="200" width="200"  (click)="goToClubDetails(club.codClub)">
+            </div>
+            <div>
+                <p class="nume-club">{{ club.nume }}</p>
+
+                <p class="email-club">Email: {{ club.email }}</p>
+                
+            </div>
+                <button class="custom-btn btn-1" (click)="goToClubDetails(club.codClub)">Despre</button>
+        </div>
+    </div>
+</div>
+

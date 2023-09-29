@@ -1,0 +1,233 @@
+.image1 {
+    margin-top: 3%;
+    width: 100vw;
+    height: 96vh;
+    object-fit: cover;
+  }
+  
+  .navbar-brand {
+    position: fixed;
+    top: 0%;
+    left: 1%;
+  }
+  .delete {
+    text-decoration: none;
+    border: 0px;
+    background-color: rgba(255, 255, 255, 0);
+    margin-bottom: 3%;
+  }
+
+  .delete:hover {
+    text-decoration: none;
+    color: rgba(233, 81, 81, 0.89);
+    border-radius: 20px;
+    margin-bottom: 3%;
+  }
+  .navbar {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 8%;
+    background-color: rgba(154, 192, 207, 0.988);
+    z-index: 1000;
+  }
+  
+  .link-bar {
+    color: white;
+    font-size: 200%;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .link-bar:hover {
+    color: black;
+  }
+  .notif {
+    color: white;
+    font-size: 200%;
+    text-decoration: none;
+    font-weight: bold;
+    background-color: rgba(154, 192, 207, 0.988);
+    border: 0px;
+  }
+
+  .cerc {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(236, 11, 79, 0.753);
+    border: 4px solid rgb(241, 37, 37);
+  
+    position: absolute;
+    margin-left: 18px;
+    margin-top: 20px;
+    justify-content: center;
+    top: 0;
+    display: flex;
+    font-weight: bold;
+  }
+  .logout{
+    color: white;
+    font-size: 200%;
+    text-decoration: none;
+    font-weight: bold;
+    background-color: rgba(154, 192, 207, 0.988);
+    border: 0px;
+  }
+  .logout:hover {
+    color: rgb(183, 27, 27);
+  }
+  
+  .pozaDeProfil{
+    border-radius: 50%;
+    width: 100px;
+  }
+
+  .background{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 100%;
+    // background-image: url('https://thumbs.dreamstime.com/b/triathlon-hand-drawn-outline-icons-set-sport-event-marathon-competition-team-club-materials-check-list-invitation-poster-123312666.jpg');
+    background-image: url('../../../../assets/photos/fundalTri1.png');
+  background-repeat: repeat;
+  background-size: contain;
+  z-index: -1;
+  opacity: 0.07;
+  }
+  .backi{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background-color: rgb(120, 209, 221);
+    background-repeat: repeat;
+    background-size: contain;
+    z-index: -1;
+    opacity: 0.2;
+    }
+  
+  .backg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 80%;
+    height: 200%;
+    background-color: rgba(0, 0, 0, 0.267);
+    background-repeat: repeat;
+    background-size: contain;
+    z-index: -1;
+  }
+
+  .adaugare-post {
+    text-decoration: none;
+    border: 0px;
+    background-color: rgba(255, 255, 255, 0);
+  }
+
+  .add-comm {
+    text-decoration: none;
+    border: 0px;
+    background-color: rgba(255, 255, 255, 0);
+  }
+
+  .add-comm:hover {
+    text-decoration: none;
+    border: 0px;
+    background-color: rgba(255, 255, 255, 0);
+    color: rgb(25, 86, 252);
+  }
+
+  .imagine-profil{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px solid black;
+  }
+
+  .nume-prenume{
+    margin-left: 2%;
+    font-size: 130%;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+
+  .poza-postata{
+    width: 850px;
+    max-height: 800px;
+    height: auto;
+    object-fit:contain;
+    background-color: antiquewhite;
+  }
+  .modal-body{
+    background-color: rgb(221, 238, 243);
+   }
+  .adaugare-coment {
+    text-decoration: none;
+    border: 0px;
+    background-color: rgba(255, 255, 255, 0);
+    margin-bottom: 3%;
+  }
+
+  .adaugare-coment:hover {
+    text-decoration: none;
+    border: 0px;
+    color: rgb(1, 128, 247);
+  }
+
+  .delete-com {
+    text-decoration: none;
+    border: 0px;
+    background-color: rgba(255, 255, 255, 0);
+    margin-bottom: 3%;
+  }
+
+  .delete-com:hover {
+    text-decoration: none;
+    color: rgba(233, 81, 81, 0.89);
+    border-radius: 20px;
+    margin-bottom: 3%;
+  }
+
+  .edit-com {
+    text-decoration: none;
+    border: 0px;
+    background-color: rgba(255, 255, 255, 0);
+    margin-bottom: 3%;
+  }
+  .edit-com:hover {
+    text-decoration: none;
+    border: 0px;
+    color: rgba(0, 136, 141, 0.877);
+    margin-bottom: 3%;
+  }
+  .custom-btn {
+    display: inline-block;
+    width: 100;
+    height: 40px;
+    color:white;
+    border-radius: 5px;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    position:relative;
+    outline: none;
+  }
+  
+  .btn-1 {
+    background: rgb(80, 86, 175);
+    background: linear-gradient(0deg, rgb(75, 137, 199) 0%, rgb(7, 80, 144) 100%);
+    border: none;
+  }
+  .btn-1:hover {
+    background: rgb(80, 86, 175);
+  background: linear-gradient(0deg, rgb(7, 80, 144) 0%, rgba(2,126,251,1) 100%);
+  }
+  .modal-body{
+    background-color: rgb(221, 238, 243);
+   }

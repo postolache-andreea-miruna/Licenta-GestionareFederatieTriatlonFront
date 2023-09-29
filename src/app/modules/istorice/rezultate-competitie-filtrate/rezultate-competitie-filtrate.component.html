@@ -1,0 +1,74 @@
+<div class="background"></div>
+<div class="backg"></div>
+<app-navbar></app-navbar>
+
+
+
+<h3 style="text-transform: uppercase;">REZULTATE {{numeComp}}</h3>
+<div class="buton">
+<button class="btnul btn-2" (click)="topCluburi()" style="margin-bottom: 2%;">TOP CLUBURI</button>
+<app-top-cluburi-comp-id *ngIf = "clickTopCluburi===true"></app-top-cluburi-comp-id>
+</div>
+<div style="margin-left: 30%;margin-right:35%; margin-top: 5%;margin-bottom: 5%;">
+    <form [formGroup]="rezultateFilterForm" (ngSubmit)="filtreza()" autocomplete="off" style="margin-top: 5%;">
+
+        <div
+            style="display: flex; flex-direction: row;justify-content: space-around;">
+            <select class="select" formControlName="categorie" style="font-size: 120%;">
+                <option value="toate categoriile" selected>Toate categoriile</option>
+                <option *ngFor="let categorie of categoriiParticipante" [value]="categorie">{{categorie}}</option>
+            </select>
+
+            <select class="select" formControlName="numeProba" style="font-size: 120%;">
+                <option value="toate probele" selected>Toate probele</option>
+                <option *ngFor="let proba of numeProbeParticipante" [value]="proba">{{proba}}</option>
+            </select>
+
+            <select class="select" formControlName="club" style="font-size: 120%;">
+                <option value="toate cluburile" selected>Toate cluburile</option>
+                <option *ngFor="let club of numeCluburiParticipante" [value]="club">{{club}}</option>
+            </select>
+
+            <div class="butonul">
+                <button class="btn btn-warning" type="submit"
+                    style="font-weight: bold; font-size: 120%;">Filtrează</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+<div class="rezultate">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">NUME SPORTIV</th>
+                <th scope="col">PRENUME SPORTIV</th>
+                <th scope="col">CATEGORIE</th>
+                <th scope="col">CLUB</th>
+                <th scope="col">PROBA</th>
+                <th scope="col">TIMP TOTAL</th>
+                <th scope="col">LOC GENERAL</th>
+                <th scope="col">LOC GEN</th>
+                <th scope="col">LOC CATEGORIE</th>
+                <th scope="col">PUNCTE</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let rez of rezultate" style="font-size: 120%">
+                <td style="font-weight: bold;"> {{rez.numeSportiv}}</td>
+                <td style="font-weight: bold;"> {{rez.prenumeSportiv}}</td>
+                <td> {{rez.categorie}}</td>
+                <td style="font-weight: bold;"> {{rez.numeClub}}</td>
+                <td> {{rez.numeProba}}</td>
+                <td style="font-weight: bold;"> {{rez.timpTotal}}</td>
+                <td> {{rez.locPesteToti}}</td>
+                <td> {{rez.locPerGen}}</td>
+                <td> {{rez.locPerCatetogrie}}</td>
+                <td> {{rez.puncte}}</td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>

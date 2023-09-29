@@ -1,0 +1,63 @@
+    <div class="best">
+        <div *ngFor="let best of bestOfSp" class="bestul">
+            <div class="detalii-bestOf">
+                <p style="font-weight: 550; margin-left: 2%;">
+                    Probă: <span style="font-weight: bold;">{{best.numeProba}}</span>
+                </p>
+                <div style="display: flex; flex-direction: column; align-items: center;">
+                    <p>Timp Total:
+                        <span style="font-weight: bold;">
+                            {{best.timpTotal}}
+                        </span>
+                    </p>
+    
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="rgba(0, 0, 255, 0.363)"
+                        class="bi bi-chevron-double-down" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M1.646 6.646a.5.5 0 0 1 .708 0L8 12.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+                        <path fill-rule="evenodd"
+                            d="M1.646 2.646a.5.5 0 0 1 .708 0L8 8.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+                    </svg>
+                </div>
+    
+                <div class="loc-data">
+                    <p style="font-weight: 550;">Loc/Perioadă concurs</p>
+                    <div class="detalii-loc-data" style="font-weight: bold;">
+                        <p>{{best.numeCompetitie}}</p>
+    
+                        <p>
+                            <span>{{ best.dataStart|date:"d/M/Y"}} <span *ngIf="!sameDates(best.dataStart,best.dataFinal)">-
+                                    {{
+                                    best.dataFinal|date:"d/M/Y"}}</span></span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+    
+            <div  style="border:2px double rgba(0, 153, 255, 0.425);">
+                <table class="table table-striped" style="font-size:150%">
+                    <thead>
+                        <tr>
+                            <th scope="col">ÎNOT</th>
+                            <th scope="col">TRANZIT1</th>
+                            <th scope="col">CICLISM</th>
+                            <th scope="col">TRANZIT2</th>
+                            <th scope="col">ALERGARE</th>
+    
+                        </tr>
+                    </thead>
+                    <tbody style="font-weight: bold;">
+                        <tr>
+                            <th> {{best.timpInot}}</th>
+                            <td> {{best.timpTranzit1}} </td>
+                            <td> {{best.timpCiclism}} </td>
+                            <td> {{best.timpTranzit2}}</td>
+                            <td> {{best.timpAlergare}}</td>
+    
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <p>.</p>

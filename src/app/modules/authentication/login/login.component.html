@@ -1,0 +1,39 @@
+
+<body>
+      <app-navbar></app-navbar>
+
+    <p>.</p>
+
+<ng-container *ngIf="openChat === false">
+    <div class="d-flex justify-content-center mt-5">
+        <div class="col-12 col-lg-5">
+            <main class="form-signin">
+                <form [formGroup] = "loginForm" (ngSubmit)="submitForm()" autocomplete="off" class="p-3 border">
+                    <h3 style="text-align: center;">Logare</h3>
+                    <div class="form-floating mb-3">
+                        <input formControlName = "email" type="text" class="form-control" placeholder="Email"
+                        [class.is-invalid] = "submitted && loginForm.get('email')?.errors">
+                        <label for="email">Email<span class="required">*</span></label>                  
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input formControlName = "parola" type="password" class="form-control" placeholder="Parola"
+                        [class.is-invalid] = "submitted && loginForm.get('parola')?.errors">
+                        <label for="parola">Parola<span class="required">*</span></label>                  
+                    </div>
+
+                    <div class="alert alert-danger" role="alert" *ngIf="loginFailed">Email sau parolă incorecte.</div>
+    
+                    <div class="d-grid mt-4 px-4">
+                        <button class="btn btn-warning" type="submit" style="font-weight: bold;" [disabled]="!isLoginFormComplete">Logare</button>
+                    </div>
+                </form>
+            </main>
+        </div>
+    </div>
+</ng-container>
+</body>
+
+
+<ng-container *ngIf="openChat === true">
+    <app-chat (closeChatEmitter)="closeChat()"></app-chat>
+</ng-container>

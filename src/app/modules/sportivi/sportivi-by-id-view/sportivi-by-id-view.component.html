@@ -1,0 +1,30 @@
+<div class="background"></div>
+<app-navbar></app-navbar>
+<p>.</p>
+<p class="nume-prenume">
+    {{sportivId.nume}}
+    {{sportivId.prenume}}
+  </p>
+<div class="profil-id">
+    <img class="imag" src="{{sportivId.urlPozaProfil}}" alt="{{sportivId.nume}} {{sportivId.prenume}}">
+    <div class="details">
+        <p>Nume de familie: {{sportivId.nume}}</p>
+        <p>Prenume: {{sportivId.prenume}}</p>
+        <p>Gen: {{sportivId.gen}}</p>
+        <p>An naștere: {{sportivId.anNastere}}</p>
+        <p>Club: {{sportivId.numeClub}}</p>
+    </div>
+</div>
+
+
+<div class="containerul">
+	<button class="btnul btn-3" (click)="openBestOf()">BEST OF</button>
+	<button class="btnul btn-3" (click)="openIsto()">ISTORIC</button>
+    <button class="btnul btn-3" (click)="openPostari()">POSTĂRI</button>
+</div>
+
+<div *ngIf ="sportivId.numarLegitimatie !== 0">
+	<app-best-of-view *ngIf="showBestOf === true" [nrLegitimatie]="sportivId.numarLegitimatie"></app-best-of-view>
+	<app-istoric-sportiv-view *ngIf="showIstoric === true" [nrLegitimatie]="sportivId.numarLegitimatie"></app-istoric-sportiv-view>
+    <app-postari-utilizator-other-view *ngIf="showPostari === true"></app-postari-utilizator-other-view>
+</div>

@@ -1,0 +1,166 @@
+
+.image1 {
+  margin-top: 3%;
+  width: 100vw;
+  height: 96vh;
+  object-fit: cover;
+}
+
+.navbar-brand {
+  position: fixed;
+  top: 0%;
+  left: 1%;
+}
+
+.navbar {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 8%;
+  background-color: rgba(154, 192, 207, 0.988);
+  z-index: 1000;
+}
+
+.link-bar {
+  color: white;
+  font-size: 200%;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.link-bar:hover {
+  color: black;
+}
+.notif {
+  color: white;
+  font-size: 200%;
+  text-decoration: none;
+  font-weight: bold;
+  background-color: rgba(154, 192, 207, 0.988);
+  border: 0px;
+}
+.cerc {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(236, 11, 79, 0.753);
+  border: 4px solid rgb(241, 37, 37);
+
+  position: absolute;
+  margin-left: 18px;
+  margin-top: 20px;
+  justify-content: center;
+  top: 0;
+  display: flex;
+  font-weight: bold;
+}
+
+.cercMesaje {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(236, 11, 79, 0.753);
+  border: 4px solid rgb(241, 37, 37);
+
+  position: absolute;
+  margin-left: 15px;
+  margin-top: 15px;
+  justify-content: center;
+  top: 0;
+  display: flex;
+  font-weight: bold;
+}
+.logout{
+  color: white;
+  font-size: 200%;
+  text-decoration: none;
+  font-weight: bold;
+  background-color: rgba(154, 192, 207, 0.988);
+  border: 0px;
+}
+.logout:hover {
+  color: rgb(183, 27, 27);
+}
+
+.pozaDeProfil{
+  border-radius: 50%;
+  width: 100px;
+}
+
+.band {
+    background-color: rgba(177, 213, 227, 0.988);
+    width: 100%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+  }
+
+.triatlon-ce-este{
+    text-align: center;
+    font-size: 350%;
+}
+
+.parent-container {
+    overflow: hidden; 
+  }
+  .left-block, .right-block {
+    float: left;
+    width: calc(50% - 5px);
+    background-color: rgba(208, 245, 249, 0.885);
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  .right-block {
+    float: right;
+    margin-right: auto;
+  }
+
+  p{
+    font-size: 150%;
+    margin-left: 2%;
+  }
+
+  .text{
+    font-size: 150%;
+  }
+
+  table{
+    text-align: center;
+  }
+
+.text-info{
+  text-decoration: underline;
+  font-size: 200%;
+  text-align: center;
+}
+
+.band-sponsori {
+  background-color: rgba(177, 213, 227, 0.988);
+  width: 100%;
+  margin-top: 3%;
+  margin-bottom: 5%;
+}
+
+.band-final{
+  background-color: rgba(33, 153, 200, 0.988);
+  width: 100%;
+  margin-top: 7%;
+  height: 180px;
+}
+
+.motto{
+  text-align: center;
+  font-size: 200%;
+  color: aliceblue;
+  font-weight:400;
+}
+
+.icons{
+width: 20%;
+margin-top:-4%;
+}
+
+.table1{
+  margin-left: 40%;
+}
+

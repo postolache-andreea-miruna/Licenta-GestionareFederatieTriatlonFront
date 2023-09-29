@@ -1,0 +1,174 @@
+<div class="background"></div>
+<app-admin-navbar></app-admin-navbar>
+<p>.</p>
+<p>.</p>
+<h3 style="margin-top: 5%;text-align: center;color: black; font-weight: bold;margin-bottom: 4%;">Concurenții competiției {{numeComp}}</h3>
+
+
+
+<ng-template #contentEdit let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Modifică rezultatele</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <div class="profil-detalii2">
+            <ng-container>
+                <main class="form-fisa">
+                    <form [formGroup]="EditIstoricForm" (ngSubmit)="saveUpdateIstoric()" autocomplete="off"
+                        class="p-1 border">
+                        <div class="detalii" style="place-items: center;">
+                            <div style="display:grid; grid-template-columns: auto auto auto auto auto;align-items: center;margin-top: 2%;margin-bottom: 2%;">
+
+                                <div class="form-floating mb-3">
+                                    <input formControlName="locPesteToti" type="text" class="form-control"
+                                        placeholder="locPesteToti">
+                                    <label for="locPesteToti">locPesteToti</label>
+                                </div>
+
+                                <div class="form-floating mb-3">
+                                    <input formControlName="locPerGen" type="text" class="form-control"
+                                        placeholder="locPerGen">
+                                    <label for="locPerGen">locPerGen</label>
+                                </div>
+
+                                <div class="form-floating mb-3">
+                                    <input formControlName="locPerCategorie" type="text" class="form-control"
+                                        placeholder="locPerCategorie">
+                                    <label for="locPerCategorie">locPerCategorie</label>
+                                </div>
+
+
+
+                                <div class="form-floating mb-3">
+                                    <input formControlName="timpTotal" type="text" class="form-control"
+                                        placeholder="timpTotal">
+                                    <label for="timpTotal">timpTotal</label>
+                                </div>
+
+                               
+                                <div class="form-floating mb-3">
+                                    <input formControlName="puncte" type="text" class="form-control"
+                                        placeholder="puncte">
+                                    <label for="puncte">puncte</label>
+                                </div>
+
+                            </div>
+
+                            <div style="display:grid; grid-template-columns: auto auto auto auto auto;align-items: center;">
+                                <div class="form-floating mb-3">
+                                    <input formControlName="timpInot" type="text" class="form-control"
+                                        placeholder="timpInot">
+                                    <label for="timpInot">timpInot</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input formControlName="timpTranzit1" type="text" class="form-control"
+                                        placeholder="timpTranzit1">
+                                    <label for="timpTranzit1">timpTranzit1</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input formControlName="timpCiclism" type="text" class="form-control"
+                                        placeholder="timpCiclism">
+                                    <label for="timpCiclism">timpCiclism</label>
+                                </div>
+
+
+                                <div class="form-floating mb-3">
+                                    <input formControlName="timpTranzit2" type="text" class="form-control"
+                                        placeholder="timpTranzit2">
+                                    <label for="timpTranzit2">timpTranzit2</label>
+                                </div>
+                                
+
+                                <div class="form-floating mb-3">
+                                    <input formControlName="timpAlergare" type="text" class="form-control"
+                                        placeholder="timpAlergare">
+                                    <label for="timpAlergare">timpAlergare</label>
+                                </div>
+                                <br>
+
+                              
+
+                            </div>
+                        </div>
+                        <div class="d-grid mt-4 px-4">
+                            <button class="btn btn-warning" type="submit"
+                                style="font-weight: bold; margin-left:20%; margin-right: 20%;"
+                                [disabled]="!isEditFormComplete">Modifică</button>
+                        </div>
+
+                    </form>
+                </main>
+            </ng-container>
+        </div>
+    </div>
+</ng-template>
+
+
+
+
+<div style="display: flex;flex-direction: row;">
+    <div class="istorice">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Număr Legitimație</th>
+                    <th>Probă </th>
+                    <th>Competiție </th>
+                    <th>Categorie </th>
+                    <th>Loc General </th>
+                    <th>Loc Gen</th>
+                    <th>Loc Categorie </th>
+                    <th>Timp Total</th>
+                    <th>Înot</th>
+                    <th>Tranzit 1</th>
+                    <th>Ciclism</th>
+                    <th>Tranzit 2</th>
+                    <th>Alergare</th>
+                    
+                    <th>puncte</th>
+                    <th>Editare</th>
+                  
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let istoric of istoriceComp">
+
+                    <td>{{istoric.numarLegitimatie}}</td>
+
+                    <td>{{istoric.numeProba}}</td>
+                    <td>{{istoric.numeCompetitie}}</td>
+
+                    <td>{{istoric.categorie}}</td>
+
+                    <td>{{istoric.locPesteToti}}</td>
+
+                    <td>{{istoric.locPerGen}}</td>
+
+                    <td>{{istoric.locPerCategorie}}</td>
+
+                    <td>{{istoric.timpTotal}}</td>
+                    <td>{{istoric.timpInot}}</td>
+                    <td>{{istoric.timpTranzit1}}</td>
+                    <td>{{istoric.timpCiclism}}</td>
+                    <td>{{istoric.timpTranzit2}}</td>
+                    <td>{{istoric.timpAlergare}}</td>
+                
+                    <td>{{istoric.puncte}}</td>
+
+                    <td (click)="editIstoricForm(contentEdit,istoric.numarLegitimatie,istoric.numeProba,istoric.numeCompetitie,istoric.categorie,
+                    istoric.locPesteToti,istoric.locPerGen,istoric.locPerCategorie,istoric.timpTotal,istoric.timpInot,istoric.timpCiclism,
+                    istoric.timpAlergare,istoric.timpTranzit1,istoric.timpTranzit2,istoric.puncte)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                            class="bi bi-pencil-square" viewBox="0 0 16 16">
+                            <path
+                                d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                            <path fill-rule="evenodd"
+                                d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+                        </svg>
+                    </td>
+                                    
+                </tr>
+            </tbody>
+        </table>
+    </div>

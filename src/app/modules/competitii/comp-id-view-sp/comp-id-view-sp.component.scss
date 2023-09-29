@@ -1,0 +1,181 @@
+.image1 {
+    margin-top: 3%;
+    width: 99vw;
+    height: 96vh;
+    object-fit: cover;
+  }
+  
+  .navbar-brand {
+    position: fixed;
+    top: 0%;
+    left: 1%;
+  }
+  
+  .navbar {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 8%;
+    background-color: rgba(154, 192, 207, 0.988);
+    z-index: 1000;
+  }
+  
+  .link-bar {
+    color: white;
+    font-size: 200%;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .link-bar:hover {
+    color: black;
+  }
+  
+  .background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+        //background-image: url('https://static01.nyt.com/images/2022/12/11/magazine/11mag-ironman/11mag-ironman-facebookJumbo.jpg');
+    background-image: url('../../../../assets/photos/competitie.jpg');
+    background-repeat: repeat;
+    background-size: cover;
+    z-index: -1;
+  }
+  
+  .pagina {
+    background-color: rgba(235, 247, 247, 0.899);
+    background-repeat: repeat;
+    background-size: cover;
+    width: 80%;
+    // height: 100%;
+    margin-left: 10%;
+    margin-top: 4.3%;
+  }
+  
+  .my-div {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    background-color: #f0f0f0;
+  }
+  
+  
+  .punct {
+    color: rgba(235, 247, 247, 0.899);
+  }
+  .containerul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .nume {
+    margin-top: 1%;
+    text-align: center;
+    font-size: 300%;
+    color: rgba(42, 120, 230, 0.817);
+    font-weight: bold;
+  }
+  
+  .rating {
+    text-align: center;
+    font-size: 200%;
+    margin: 0 80px;
+  }
+    
+  .perioada {
+    margin-top: 1%;
+    text-align: center;
+    font-size: 200%;
+    color: rgba(42, 120, 230, 0.515);
+    font-weight: bold;
+  }
+  
+  
+  
+  .countdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .countdown-item {
+    text-align: center;
+    margin: 0 10px;
+  }
+  
+  .countdown-item span {
+    font-size: 3em;
+    font-weight: bold;
+  }
+  
+  .countdown-item div {
+    font-size: 1.2em;
+    text-transform: uppercase;
+  }
+  
+  .countdown-text {
+    margin-top: 2%;
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.798);
+  }
+  
+  
+  table {
+    text-align: center;
+    margin-left: 28%;
+    margin-right: 30%;
+    width: 50%;
+  }
+  
+  .table-text {
+    font-size: 120%;
+    text-transform: uppercase;
+  }
+  
+  
+  button {
+    margin-left: 30%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+  }
+  
+  .custom-btn {
+    width: 200px;
+    height: 60px;
+    color: white;
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 130%;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    display: block;
+    outline: none;
+  }
+  
+  .btn-1 {
+    background: rgb(80, 86, 175);
+    background: linear-gradient(0deg, rgb(75, 137, 199) 0%, rgb(7, 80, 144) 100%);
+    border: none;
+  }
+  
+  .btn-1:hover {
+    background: rgb(80, 86, 175);
+    background: linear-gradient(0deg, rgb(7, 80, 144) 0%, rgba(2, 126, 251, 1) 100%);
+  }
+  
+  .comp-anulata {
+    font-size: 200%;
+    color: rgba(99, 41, 119, 0.834);
+    text-align: center;
+    text-transform: uppercase;
+  }
+  
+  .comp-anulata-span {
+    font-weight: bold;
+  }

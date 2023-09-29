@@ -1,0 +1,30 @@
+<div class="background">
+    <div style="margin-left: 30%;margin-right:35%; margin-top: 2%;margin-bottom: 2%;">
+        <form [formGroup]="statisticaFilterForm" (ngSubmit)="filtreza()" autocomplete="off" style="margin-top: 5%;">
+
+            <div style="display: flex; flex-direction: row;justify-content: space-around;">
+
+                <select class="select" formControlName="numeCompetitie" style="font-size: 120%; margin-left: 2%;">
+                    <option value="toate competițiile" selected>Toate competițiile</option>
+                    <option *ngFor="let comp of numeCompetitii" [value]="comp.numeCompetitie">{{comp.numeCompetitie}}
+                    </option>
+                </select>
+
+                <div class="butonul">
+                    <button class="btn btn-warning" type="submit"
+                        style="font-weight: bold; font-size: 120%; margin-left: 10px;">Filtrează</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div style="display: flex; flex-direction: row;margin-top: 2%;">
+        <div style="display: block; margin-left: 20%;">
+            <canvas id="canvas" width="400" height="400">{{graficul}}</canvas>
+        </div>
+        <div style="display: block; margin-left: 10%; margin-bottom: 2%;">
+            <canvas id="canvasul" width="400" height="400">{{graficulPodium}}</canvas>
+        </div>
+    </div>
+</div>
+<p>.</p>

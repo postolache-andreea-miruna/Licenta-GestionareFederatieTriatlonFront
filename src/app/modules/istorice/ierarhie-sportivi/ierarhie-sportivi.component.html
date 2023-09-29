@@ -1,0 +1,242 @@
+<div class="background"></div>
+<div class="backg"></div>
+<app-navbar></app-navbar>
+<p>.</p>
+<div style="display: flex; margin-left: 41%; margin-top: 5%;">
+    <button class="btnas btn-1" style="margin-right: 2%;" (click)="top5Sportivi()">TOP 5 SPORTIVI</button>
+    <button class="btnas btn-1" (click)="top5Cluburi()">TOP 5 CLUBURI</button>
+</div>
+
+<div *ngIf="top5SportiviAfisare === true">
+    <H3 style="margin-top: 2%;text-align: center;">TOP 5 SPORTIVI</H3>
+    <div style="margin-left: 30%;margin-right:35%; margin-top: 2%;margin-bottom: 2%;">
+        <form [formGroup]="rezultateFilterForm" (ngSubmit)="filtreza()" autocomplete="off" style="margin-top: 5%;">
+
+            <div style="display: flex; flex-direction: row;justify-content: space-around;">
+               
+                <select class="select" formControlName="categorie" style="font-size: 120%;">
+                    <option value="toate categoriile" selected>Toate categoriile</option>
+                    <option value="" disabled selected style="color:brown">categorii MASCULIN</option>
+                    <option value="COPII 5-8 MASCULIN">COPII 5-8 MASCULIN</option>
+                    <option value="COPII 9-10 MASCULIN">COPII 9-10 MASCULIN</option>
+                    <option value="COPII 11-13 MASCULIN">COPII 11-13 MASCULIN</option>
+                    <option value="CADETI 14-15 MASCULIN">CADETI 14-15 MASCULIN</option>
+                    <option value="JUNIORI II 16-17 MASCULIN">JUNIORI II 16-17 MASCULIN</option>
+                    <option value="JUNIORI I 18-19 MASCULIN">JUNIORI I 18-19 MASCULIN</option>
+                    <option value="UNDER 23 MASCULIN">UNDER 23 MASCULIN</option>
+                    <option value="ELITE MASCULIN">ELITE MASCULIN</option>
+                    <option value="AG 20-24 MASCULIN">AG 20-24 MASCULIN</option>
+                    <option value="AG 25-29 MASCULIN">AG 25-29 MASCULIN</option>
+                    <option value="AG 30-34 MASCULIN">AG 30-34 MASCULIN</option>
+                    <option value="AG 40-44 MASCULIN">AG 40-44 MASCULIN</option>
+                    <option value="AG 45-49 MASCULIN">AG 45-49 MASCULIN</option>
+                    <option value="AG 50-54 MASCULIN">AG 50-54 MASCULIN</option>
+                    <option value="AG 55-59 MASCULIN">AG 55-59 MASCULIN</option>
+                    <option value="AG 60-64 MASCULIN">AG 60-64 MASCULIN</option>
+                    <option value="AG +65 MASCULIN">AG +65 MASCULIN</option>
+
+
+                    <option value="" disabled selected style="color:brown">categorii FEMININ</option>
+                    <option value="COPII 5-8 FEMININ">COPII 5-8 FEMININ</option>
+                    <option value="COPII 9-10 FEMININ">COPII 9-10 FEMININ</option>
+                    <option value="COPII 11-13 FEMININ">COPII 11-13 FEMININ</option>
+                    <option value="CADETI 14-15 FEMININ">CADETI 14-15 FEMININ</option>
+                    <option value="JUNIORI II 16-17 FEMININ">JUNIORI II 16-17 FEMININ</option>
+                    <option value="JUNIORI I 18-19 FEMININ">JUNIORI I 18-19 FEMININ</option>
+                    <option value="UNDER 23 FEMININ">UNDER 23 FEMININ</option>
+                    <option value="ELITE FEMININ">ELITE FEMININ</option>
+                    <option value="AG 20-24 FEMININ">AG 20-24 FEMININ</option>
+                    <option value="AG 25-29 FEMININ">AG 25-29 FEMININ</option>
+                    <option value="AG 30-34 FEMININ">AG 30-34 FEMININ</option>
+                    <option value="AG 40-44 FEMININ">AG 40-44 FEMININ</option>
+                    <option value="AG 45-49 FEMININ">AG 45-49 FEMININ</option>
+                    <option value="AG 50-54 FEMININ">AG 50-54 FEMININ</option>
+                    <option value="AG 55-59 FEMININ">AG 55-59 FEMININ</option>
+                    <option value="AG 60-64 FEMININ">AG 60-64 FEMININ</option>
+                    <option value="AG +65 FEMININ">AG +65 FEMININ</option>
+                </select>
+
+                <select class="select" formControlName="club" style="font-size: 120%; margin-left: 2%;">
+                    <option value="toate cluburile" selected>Toate cluburile</option>
+                    <option *ngFor="let club of numeCluburi" [value]="club">{{club}}</option>
+                </select>
+
+
+                <select class="select" formControlName="proba" style="font-size: 120%; margin-left: 2%;">
+                    <option value="toate probele" selected>Toate probele</option>
+                    <option *ngFor="let proba of numeProbe" [value]="proba.numeProba">{{proba.numeProba}}</option>
+                </select>
+
+                <select class="select" formControlName="an" style="font-size: 120%; margin-left: 2%;">
+                    <option value="toti anii" selected>Toti anii</option>
+                    <option *ngFor="let an of ani" [value]="an">{{an}}</option>
+                </select>
+
+                <div class="butonul">
+                    <button class="btn btn-warning" type="submit"
+                        style="font-weight: bold; font-size: 120%; margin-left: 10px;">Filtrează</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+    <div class="containerul" *ngIf="top3.length >= 2">
+        <div class="premianti">
+            <ul>
+                <li *ngFor="let sportiv of top3">
+                    <div>
+                        <div class="podium  podium-{{sportiv.num-1}}">
+                            <div class="locuri"
+                                style="background-color:rgba(243, 228, 21, 0.884); border: 3px solid rgb(224, 192, 9);">
+                                {{sportiv.num}}
+                            </div>
+                            <h4 style="font-weight: bold;">{{sportiv.ierarh.numeSportiv}}
+                                {{sportiv.ierarh.prenumeSportiv}}</h4>
+                            <hr>
+                            <br>
+                            <p style="color: rgba(8, 4, 4, 0.74); font-size: 110%; font-weight: bold;">
+                                {{sportiv.ierarh.puncte}} puncte</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="containerul" *ngIf="top3.length === 1">
+        <div class="premiantii">
+            <ul>
+                <li *ngFor="let sportiv of top3">
+                    <div>
+                        <div class="podium  podium-{{sportiv.num-1}}">
+                            <div class="locuri"
+                                style="background-color:rgba(243, 228, 21, 0.884); border: 3px solid rgb(224, 192, 9);">
+                                {{sportiv.num}}
+                            </div>
+                            <h4 style="font-weight: bold;">{{sportiv.ierarh.numeSportiv}}
+                                {{sportiv.ierarh.prenumeSportiv}}</h4>
+                            <hr>
+                            <br>
+                            <p style="color: rgba(8, 4, 4, 0.74); font-size: 110%; font-weight: bold;">
+                                {{sportiv.ierarh.puncte}} puncte</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="containerul" *ngIf="top3.length === 0">
+        <div class="premiantii">
+            <p style="font-size: 250%; text-align: center; padding: 15%; color: aliceblue; font-weight: 500;">Nu exisă
+                sportivi care să fi participat la competiții, având în vedere selecțiile făcute mai sus</p>
+        </div>
+    </div>
+
+
+    <div class="ierarhie-tot" *ngIf="ierarhie.length > 3">
+        <div *ngFor="let sportiv of ierarhie.slice(3); let i = index" class="sportiv-container">
+            <!--.slice(3) inseamna ca incep de la elementul 4-->
+            <div class="sportiv-containerul">
+                <p style="margin-left: 2%;">{{i+4}}</p><!--+4 pt ca index a luat-o de la 0 si deja 3 au fost afisati-->
+
+                <div class="nume-club-container">
+                    <p>{{sportiv.numeSportiv}} {{sportiv.prenumeSportiv}}</p>
+                </div>
+
+                <p style="margin-right: 2%;">{{sportiv.puncte}} puncte</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<div *ngIf="top5CluburiAfisare === true">
+    <H3 style="margin-top: 2%;text-align: center;">TOP 5 CLUBURI</H3>
+    <div style="margin-left: 30%;margin-right:35%; margin-top: 2%;margin-bottom: 2%;">
+        <form [formGroup]="topCluburiFilterForm" (ngSubmit)="filtrezaCluburi()" autocomplete="off"
+            style="margin-top: 5%;">
+
+            <div style="display: flex; flex-direction: row; margin-left: 40%;">
+
+
+                <select class="select" formControlName="anul" style="font-size: 120%; margin-left: 2%;">
+                    <option value="toti anii" selected>Toti anii</option>
+                    <option *ngFor="let anul of ani" [value]="anul">{{anul}}</option>
+                </select>
+
+                <div class="butonul">
+                    <button class="btn btn-warning" type="submit"
+                        style="font-weight: bold; font-size: 120%; margin-left: 10px;">Filtrează</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="containerul" *ngIf="top3Cluburi.length >= 2">
+        <div class="premianti">
+            <ul>
+                <li *ngFor="let club of top3Cluburi">
+                    <div>
+                        <div class="podium  podium-{{club.num-1}}">
+                            <div class="locuri"
+                                style="background-color:rgba(243, 228, 21, 0.884); border: 3px solid rgb(224, 192, 9);">
+                                {{club.num}}
+                            </div>
+                            <h4 style="font-weight: bold;">{{club.ierarh.numeClub}}</h4>
+                            <hr>
+                            <br>
+                            <p style="color: rgba(8, 4, 4, 0.74); font-size: 110%; font-weight: bold;">
+                                {{club.ierarh.puncte}} puncte</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="containerul" *ngIf="top3Cluburi.length === 1">
+        <div class="premiantii">
+            <ul>
+                <li *ngFor="let club of top3Cluburi">
+                    <div>
+                        <div class="podium  podium-{{club.num-1}}">
+                            <div class="locuri"
+                                style="background-color:rgba(243, 228, 21, 0.884); border: 3px solid rgb(224, 192, 9);">
+                                {{club.num}}
+                            </div>
+                            <h4 style="font-weight: bold;">{{club.ierarh.numeClub}}</h4>
+                            <hr>
+                            <br>
+                        
+                            <p style="color: rgba(8, 4, 4, 0.74); font-size: 110%; font-weight: bold;">
+                                {{club.ierarh.puncte}} puncte</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="ierarhie-tot" *ngIf="ierarhieCluburi.length > 3">
+        <div *ngFor="let club of ierarhieCluburi.slice(3); let i = index" class="sportiv-container">
+            <!--.slice(3) inseamna ca incep de la elementul 4-->
+            <div class="sportiv-containerul">
+                <p style="margin-left: 2%;">{{i+4}}</p><!--+4 pt ca index a luat-o de la 0 si deja 3 au fost afisati-->
+                <p>{{club.numeClub}}</p>
+                <p style="margin-right: 2%;">{{club.puncte}} puncte</p>
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
+<div style="text-align: center;">
+<a href="https://www.freepik.com/free-vector/group-cute-little-girl-boy-holding-gold-trophy-podium_29006329.htm#&position=1&from_view=search&track=ais">Image by jcomp</a> on Freepik
+</div>

@@ -1,0 +1,60 @@
+.image1{ 
+  margin-top: 3%;
+  width: 99vw;
+  height: 96vh;
+  object-fit:cover;
+}
+
+.navbar-brand{
+  position: fixed;
+  top: 0%;
+  left: 1%;
+}
+.navbar {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 8%;
+  background-color: rgba(154, 192, 207, 0.988);
+  z-index: 1000;
+}
+
+.link-bar{
+  color: white;
+  font-size: 200%;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.link-bar:hover {
+  color: black; 
+}
+
+.form-signin{
+  margin-top: 10%;
+
+}
+body {
+   // background-image: url('https://www.triathlete.com/wp-content/uploads/2013/07/EnduraPix_6058_120715AE07032F86.jpg');
+   background-image: url('../../../../assets/photos/login.jpg');
+    background-size: cover;
+  }
+
+.inregistrare{
+  margin-top: 3%;
+  margin-left: 40%;
+  font-size: 120%;
+  font-weight: bold;
+}
+
+.inregistrarea{
+  text-decoration: none;  
+  font-size: 100%; 
+  font-weight: bold;
+}
+
+.required {
+  color: red;
+}
+

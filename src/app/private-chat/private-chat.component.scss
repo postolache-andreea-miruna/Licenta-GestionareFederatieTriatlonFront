@@ -1,0 +1,43 @@
+.modal-header
+{
+ background-color: white;
+ width: 200%;
+}
+.modal-body{
+ background-color: rgb(221, 238, 243);
+ width: 200%;
+ border-bottom-left-radius: 10px;
+ border-bottom-right-radius: 10px;
+}
+
+.card-text{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 2%;
+    font-size: 1.4em;
+}
+
+.receive-message {
+    background-color: rgb(252, 239, 211);
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 1px;
+    border-radius: 10px;
+    align-self: flex-start; 
+    margin-left: 4%;
+    border: 2px solid rgba(0, 0, 0, 0.315);
+}
+.send-message {
+    background-color: rgb(211,233,255);
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 1px;
+    border-radius: 10px;
+    align-self: flex-end; 
+    margin-right: 4%;
+    
+    border: 2px solid rgba(8, 0, 39, 0.288);
+}

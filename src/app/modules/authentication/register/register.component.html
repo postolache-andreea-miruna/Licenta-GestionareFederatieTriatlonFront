@@ -1,0 +1,111 @@
+<body>
+  <p style="margin-bottom: 3.4%;">.</p>
+
+  <app-navbar></app-navbar>
+  <div class="d-flex justify-content-center mt-5">
+    <div class="col-12 col-lg-5">
+      <main class="form-signin">
+        <form [formGroup]="registrationForm" (ngSubmit)="onRegister()" autocomplete="off" class="p-3 border"style="background-color: rgba(191, 227, 240, 0.88);">
+          <h4 style="text-align: center;">Formular de înregistrare</h4>
+
+          <div class="form-floating mb-3">
+            <input formControlName="email" type="text" class="form-control" placeholder="Email">
+            <label for="email">Email<span class="required">*</span></label>
+            <div *ngIf="!emailIsValid" class="text-danger"style="font-weight: bold;">Introduceți o parolă validă</div>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input formControlName="parola" type="password" class="form-control" placeholder="Parola" required>
+            <label for="parola">Parola<span class="required">*</span></label>
+            <div *ngIf="!passwordIsValid" class="text-danger" style="font-weight: bold;">Cel puțin o literă mare, o literă mică, o cifră, un
+              caracter special. Cel puțin 8 caractere.</div>
+          </div>
+
+          <select class="select" formControlName="codRol" required>
+            <option value="" disabled selected> Rol<span class="required">*</span></option>
+            <option value="SportivUtilizator">Sportiv</option>
+            <option value="AntrenorUtilizator">Antrenor</option>
+          </select>
+
+          <br>
+          <br>
+
+          <div class="form-floating mb-3">
+            <input formControlName="nume" type="text" class="form-control" placeholder="Nume">
+            <label for="nume">Nume<span class="required">*</span></label>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input formControlName="prenume" type="text" class="form-control" placeholder="Prenume">
+            <label for="prenume">Prenume<span class="required">*</span></label>
+          </div>
+
+          <p class="abonare">Abonare știri<span class="required">*</span></p>
+          <input type="radio" formControlName="abonareStiri" value="true" />Da
+          <input type="radio" formControlName="abonareStiri" value="false" />Nu<br>
+
+
+          <div>
+            <input class="fisier" type="file" formControlName="urlPozaProfil" (change)="onFileSelected($event)">
+          </div>
+          <br>
+
+
+          <div *ngIf="registrationForm.get('codRol')?.value === 'SportivUtilizator'" class="form-floating mb-3">
+            <input formControlName="emailAntrenor" type="text" class="form-control" placeholder="Email antrenor">
+            <label for="emailAntrenor">Email antrenor<span class="required">*</span></label>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input formControlName="codClub" type="text" class="form-control" placeholder="Cod club">
+            <label for="codClub">Cod club<span class="required">*</span></label>
+          </div>
+
+          <div *ngIf="registrationForm.get('codRol')?.value === 'SportivUtilizator'" class="form-floating mb-3">
+            <input formControlName="numarLegitimatie" type="text" class="form-control" placeholder="Numar legitimatie">
+            <label for="numarLegitimatie">Numar legitimatie<span class="required">*</span></label>
+          </div>
+
+
+          <p class="textul" *ngIf="registrationForm.get('codRol')?.value === 'SportivUtilizator'">Dată naștere
+            <span class="required">*</span>
+            <input *ngIf="registrationForm.get('codRol')?.value === 'SportivUtilizator'" formControlName="dataNastere"
+              type="date" class="form-control">
+          </p>
+
+          <div *ngIf="registrationForm.get('codRol')?.value === 'SportivUtilizator'" class="form-floating mb-3">
+            <p class="gen">Gen<span class="required">*</span></p>
+            <div class="radio-buttons">
+              <label>
+                <input type="radio" formControlName="gen" value="F">
+                <span class="radio-text">F</span>
+              </label>
+              <label>
+                <input type="radio" formControlName="gen" value="M">
+                <span class="radio-text">M</span>
+              </label>
+            </div>
+          </div>
+
+          <div *ngIf="registrationForm.get('codRol')?.value === 'AntrenorUtilizator'" class="form-floating mb-3">
+            <input formControlName="gradPregatire" type="text" class="form-control" placeholder="Grad Pregatire">
+            <label for="gradPregatire">Grad Pregatire<span class="required">*</span></label>
+          </div>
+
+          <div class="d-grid mt-4 px-4">
+            <button class="btn btn-warning" type="submit" style="font-weight: bold;"
+              [disabled]="!isFormComplete">Înregistrare</button>
+          </div>
+
+        </form>
+        <p class="inregistrare">Ai deja cont?
+          <a class="inregistrarea" href="http://localhost:4200/auth/login">
+            Logare
+          </a>
+        </p>
+
+
+      </main>
+    </div>
+  </div>
+</body>

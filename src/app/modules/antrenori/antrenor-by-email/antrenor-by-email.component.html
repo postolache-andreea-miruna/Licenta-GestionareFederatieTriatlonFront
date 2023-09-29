@@ -1,0 +1,123 @@
+<div class="background"></div>
+<app-navbar></app-navbar>
+<p>.</p>
+<p class="nume-prenume">
+  {{antrenorId.nume}}
+  {{antrenorId.prenume}}
+</p>
+<div class="profil-id">
+  <img class="imag" src="{{antrenorId.urlPozaProfil}}" alt="{{antrenorId.nume}} {{antrenorId.prenume}}">
+  <div class="details">
+    <p>Nume de familie: {{antrenorId.nume}}</p>
+    <p>Prenume: {{antrenorId.prenume}}</p>
+    <p>Grad Pregatire: {{antrenorId.gradPregatire}}</p>
+    <p>Club: {{antrenorId.numeClub}}</p>
+    <p>Email: {{antrenorId.email}}</p>
+    <p>Abonare: {{antrenorId.abonareStiri}}</p>
+  </div>
+</div>
+
+<div class="profil-detalii">
+
+  <button class="custom-btn btn-1" *ngIf="sportivi.length > 0" (click)="sportiviAntr()">Sportivii mei</button>
+  <button type="button" class="custom-btn btn-2" placement="bottom" ngbPopover="Nu aveți sportivi"
+    triggers="mouseenter:mouseleave" *ngIf="sportivi.length === 0">Sportivii mei </button>
+
+  <button class="custom-btn btn-1" style="margin-left: 2%;" (click)="statistici()">Statistici</button>
+
+  <button class="custom-btn btn-1" (click)="postarileMele()" style="margin-left: 2%;">Postările mele</button>
+  <button class="custom-btn btn-1" (click)="editAntrenorInfo(contentEdit)" style="margin-left: 2%;">Editare
+    profil</button>
+</div>
+
+<ng-template #contentEdit let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Editare Profil</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <div class="profil-detalii2">
+      <ng-container>
+        <main class="form-fisa">
+          <form [formGroup]="antrenorEditForm" (ngSubmit)="saveUpdateAntrentor()" autocomplete="off" class="p-1 border">
+            <div class="pozele" style="place-items: center;">
+              <div style="margin-left: 4%;">
+
+                <br>
+                <p style="font-weight: bold;">Poza de profil actuală</p>
+                <img src="{{antrenorId.urlPozaProfil}}" width="200px" height="200px" style="margin-bottom: 4%;">
+
+
+                <div>
+                  <label for="fisier"style="font-weight: bold;">Schimbă poza de profil</label>
+                  <input class="fisier" type="file" formControlName="urlPozaProfil" (change)="onFileSelected($event)">
+                </div>
+                <br>
+
+
+              </div>
+              
+
+              <div style="margin-right: 10%;">
+                <label for="nume"style="font-weight: bold;">Nume</label>
+                <div class="form-floating mb-3">
+                  <input style="font-size: 110%;" formControlName="nume" type="text" class="form-control" placeholder="nume">
+                </div>
+
+                <label for="prenume"style="font-weight: bold;">Prenume</label>
+                <div class="form-floating mb-3">
+                  <input  style="font-size: 110%;"  formControlName="prenume" type="text" class="form-control" placeholder="prenume">
+                </div>
+
+                <p class="abonare"style="font-weight: bold;">Abonare știri</p>
+                <input type="radio" formControlName="abonareStiri" value="true" />Da
+                <input type="radio" formControlName="abonareStiri" value="false" />Nu
+                <br>
+                <br>
+
+                <p class="abonare"style="font-weight: bold;">Grad pregătire</p>
+
+
+                <div>
+                  <input type="radio" formControlName="gradPregatire" value="Instructor" />Instructor
+                </div>
+
+                <div>
+                  <input type="radio" formControlName="gradPregatire" value="Antrenor Level 1" />Antrenor Level 1
+                </div>
+                
+                <div>
+                <input type="radio" formControlName="gradPregatire" value="Antrenor Level 2" />Antrenor Level 2
+                </div>
+
+                <br>
+                <br>
+
+                <p style="font-weight: bold;">Vrei să te muți la alt club?</p>
+                <p *ngIf="numarSportivi > 0">Nu te poți muta la alt club pentru că încă mai ai sportivi la clubul actual!</p>
+                <select class="select" formControlName="numeClub" style="font-size: 120%;">
+                  <option  style="font-size: 110%;" *ngFor="let club of cluburi" [value]="club" disabled="numarSportivi > 0">{{club}}</option>
+                </select>
+              </div>
+
+
+
+            </div>
+
+            <div class="d-grid mt-4 px-4">
+              <button class="custom-btn btn-3" type="submit"
+                style="font-weight: bold;  margin-left:20%; margin-right: 20%;">Modifică</button>
+            </div>
+          </form>
+        </main>
+      </ng-container>
+    </div>
+  </div>
+
+</ng-template>
+
+<app-sportivi-antrenor *ngIf="afisareSportiviAntr === true"></app-sportivi-antrenor><!--*ngIf="click%2 !== 0"-->
+
+<div *ngIf="afisareStatistici === true" style="margin-top: 2%;">
+  <app-statistici-rezultate-medalii></app-statistici-rezultate-medalii>
+</div>

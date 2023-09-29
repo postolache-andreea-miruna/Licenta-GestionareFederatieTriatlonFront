@@ -1,0 +1,25 @@
+
+<div class="card-text" *ngFor="let mesaj of messages">
+    <div *ngIf="mesaj.codUtilizator !== emailul"
+    class="receive-message">
+        <p  style="color: rgba(255, 116, 2, 0.788);font-weight: bold; font-size: 80%;">{{mesaj.codUtilizator.split("@")[0]}} </p>
+        <hr>
+        <div>
+            <p class="ml-1">{{mesaj.mesajConversatie}}</p>
+            <p class="ml-1" style="font-size: 0.8em;font-weight:bold;color: rgba(51, 24, 202, 0.63);">
+                {{mesaj.dataTrimitereMesaj|date:"d/M/Y"}} {{mesaj.dataTrimitereMesaj|date:"H:m"}}
+            </p>
+        </div>
+    </div>
+
+    <div *ngIf="mesaj.codUtilizator === emailul"
+    class="send-message">
+        <p style="color: rgba(0, 60, 255, 0.897); font-weight: bold;font-size: 80%;">{{mesaj.codUtilizator.split("@")[0]}} </p>
+        <hr>
+        <div>
+            <p class="ml-1">{{mesaj.mesajConversatie}}</p>
+            <p class="ml-1" style="font-size: 0.8em;font-weight:bold;color: rgba(51, 24, 202, 0.63);">
+                {{mesaj.dataTrimitereMesaj|date:"d/M/Y"}} {{mesaj.dataTrimitereMesaj|date:"H:m"}}</p>
+        </div>
+    </div>
+</div>

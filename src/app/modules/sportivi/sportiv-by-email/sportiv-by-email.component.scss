@@ -1,0 +1,273 @@
+.image1 {
+    margin-top: 3%;
+    width: 99vw;
+    height: 96vh;
+    object-fit: cover;
+  }
+  
+  .navbar-brand {
+    position: fixed;
+    top: 0%;
+    left: 1%;
+  }
+  
+  .navbar {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 8%;
+    background-color: rgba(154, 192, 207, 0.988);
+    z-index: 1000;
+  }
+  
+  .link-bar {
+    color: white;
+    font-size: 200%;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .link-bar:hover {
+    color: black;
+  }
+  .logout{
+    color: white;
+    font-size: 200%;
+    text-decoration: none;
+    font-weight: bold;
+    background-color: rgba(154, 192, 207, 0.988);
+    border: 0px;
+  }
+  .logout:hover {
+    color: rgb(183, 27, 27);
+  }
+  .pozaDeProfil {
+    border-radius: 50%;
+  }
+  
+  
+  .background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    // background-image: url('https://thumbs.dreamstime.com/b/triathlon-hand-drawn-outline-icons-set-sport-event-marathon-competition-team-club-materials-check-list-invitation-poster-123312666.jpg');
+    background-image: url('../../../../assets/photos/fundalTri1.png');
+    background-repeat: repeat;
+    background-size: contain;
+    z-index: -1;
+    opacity: 0.07;
+  }
+  
+  .nume-prenume {
+    font-size: 200%;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 7%;
+    text-transform: uppercase;
+  }
+  
+  .profil-id {
+    background-color: rgba(217, 228, 232, 0.685);
+    margin-left: 20%;
+    margin-right: 20%;
+    height: 50%;
+    overflow-y: auto;
+    overflow-x: auto;
+  }
+  
+  .imag {
+    float: left;
+    margin-top: 2%;
+    margin-left: 2%;
+    margin-right: 8%;
+    width: 500px;
+    height: 500px;
+  }
+  
+  .details {
+    overflow: auto;
+    border-left: 12px solid rgba(150, 206, 227, 0.39);
+    padding-left: 8%;
+    padding-top: 4%;
+    height: 100%;
+  }
+  
+  .details p {
+    margin-top: 2%;
+    font-size: 1.5em;
+    font-family: monospace;
+    font-weight: bold;
+  }
+
+.profil-detalii{
+  margin-top: 2%;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+.profil-detalii p {
+  color: rgba(240, 248, 255, 0);
+}
+
+.profil-detalii button {
+  margin-left: 2%;
+  display: inline-block;
+}
+.custom-btn {
+  width: 200px;
+  height: 40px;
+  color:white;
+  border-radius: 5px;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  position:relative;
+  display: block;
+  outline: none;
+  font-size: 120%;
+}
+
+.custom-btn2 {
+  width: 300px;
+  height: 40px;
+  color:white;
+  border-radius: 5px;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  position:relative;
+  display: block;
+  outline: none;
+  font-size: 120%;
+}
+
+.btn-1 {
+  background: rgb(80, 86, 175);
+  background: linear-gradient(0deg, rgb(75, 137, 199) 0%, rgb(7, 80, 144) 100%);
+  border: none;
+}
+
+.btn-2 {
+  background: rgb(80, 86, 175);
+  background: linear-gradient(0deg, rgb(75, 137, 199) 0%, rgb(7, 80, 144) 100%);
+  border: none;
+}
+.btn-1:hover {
+  background: rgb(80, 86, 175);
+background: linear-gradient(0deg, rgb(7, 80, 144) 0%, rgba(2,126,251,1) 100%);
+}
+
+button[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.required {
+  color: red;
+}
+.profil-detalii2{
+
+ font-size: 110%;
+
+ background-color: rgba(217, 228, 232, 0.685);
+ margin-top: 1%;
+ margin-left: 20%;
+ margin-right: 20%;
+ height: 40%;
+}
+
+.profil-detalii2 form{
+  flex: 1;
+}
+
+.pozele {
+  margin-top: 2%;
+  text-align: center;
+}
+.pozele p{
+  font-size: 120%;
+  font-weight: bold;
+  color:rgba(11, 89, 207, 0.603);
+}
+.pozele input{
+  margin-left: 10%;
+}
+
+.pozele div input{
+display: inline-block;
+}
+.pozele div p{
+  display: inline-block;
+}
+
+
+.containerul {
+  display: flex;
+  flex-direction: row;
+  margin-top: 2%;
+  margin-left: 40vi;
+  align-items: center;
+}
+
+.containerul button {
+  display: inline-block;
+  margin-right: 1%;
+}
+
+.btnul {
+  width: 200px;
+  height: 40px;
+  color: white;
+  border-radius: 5px;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  position: relative;
+  display: block;
+  outline: none;
+  font-size: 120%;
+}
+
+.btn-3 {
+  background: rgb(80, 86, 175);
+  background: linear-gradient(0deg, rgb(75, 184, 199) 0%, rgba(7, 94, 144, 0.651) 100%);
+  border: none;
+}
+
+.btn-3:hover {
+  background: rgba(75, 184, 199, 0.534);
+  background: linear-gradient(0deg, rgba(75, 184, 199, 0.534) 0%, rgba(7, 89, 144, 0.651) 100%);
+}
+
+
+
+
+.detalii{
+  font-size: 120%;
+  display: flex;
+  flex-direction: row;
+ }
+ .modal-header
+ {
+  background-color: white;
+  width: 150%;
+ }
+ .modal-body{
+  background-color: rgb(221, 238, 243);
+  width: 150%;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+ }
+
+
+
+
+
+
+
+

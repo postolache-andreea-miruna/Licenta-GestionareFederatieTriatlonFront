@@ -1,0 +1,32 @@
+<div class="background"></div>
+<app-navbar></app-navbar>
+<p>.</p>
+<p>.</p>
+<h2 class="title">Competiții</h2>
+
+<div class="competitii">
+    <div *ngFor="let comp of competitii" class="competitie">
+        <p class="nume-comp">{{comp.numeCompetitie}}</p>
+        <hr style="border: 2px solid rgb(123, 177, 173);">
+
+        <p class="perioada">Perioada de desfășurare:
+
+            <span class="data-desfasurare">{{ comp.dataStart|date:"d/M/Y"}} <span *ngIf="!sameDates(comp.dataStart,comp.dataFinal)">- {{ comp.dataFinal|date:"d/M/Y"}}</span></span>
+        </p>
+
+        <p class="ore-desfasurare">Oră start: {{ comp.dataStart|date:"H:m"}}</p>
+
+        <p class="ore-desfasurare">Oră final: {{ comp.dataFinal|date:"H:m"}}</p>
+
+        <hr style="border: 2px solid rgb(123, 177, 173);">
+        <p class="perioada">Tip competiție: {{comp.tipCompetitie}}</p>
+       
+        <button class="custom-btn btn-1" (click)="goToCompetitiiDetails(comp.codCompetitie,comp.statusCompetitie)">
+            Despre
+        </button>
+        <p *ngIf="compAnulata.codCompetitie === comp.codCompetitie && compAnulata.statusCompetitie === 'anulata' && compAnulataMesaj" class="comp-anulata">
+            Competiția este anulată.
+        </p>
+          
+    </div>
+</div>

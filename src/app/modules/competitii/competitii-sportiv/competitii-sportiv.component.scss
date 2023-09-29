@@ -1,0 +1,155 @@
+.image1 {
+    margin-top: 3%;
+    width: 99vw;
+    height: 96vh;
+    object-fit: cover;
+  }
+  
+  .navbar-brand {
+    position: fixed;
+    top: 0%;
+    left: 1%;
+  }
+  
+  .navbar {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 8%;
+    background-color: rgba(154, 192, 207, 0.988);
+    z-index: 1000;
+  }
+  
+  .link-bar {
+    color: white;
+    font-size: 200%;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .link-bar:hover {
+    color: black;
+  }
+  
+  .background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+       //background-image: url('https://static01.nyt.com/images/2022/12/11/magazine/11mag-ironman/11mag-ironman-facebookJumbo.jpg');
+       background-image: url('../../../../assets/photos/competitie.jpg');
+    background-repeat: repeat;
+    background-size: cover;
+    z-index: -1;
+    opacity: 0.9;
+  }
+  
+  .title {
+    text-align: center;
+    margin-top: 5.4%;
+    font-size: 200%;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+  }
+  
+  .competitii {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-left: 10%;
+    margin-top: 2%;
+    width: 80%;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  
+  .competitie {
+  
+    background-color: rgba(240, 248, 255, 0.774);
+  
+    width: calc(50% - 10px);
+    min-width: 300px;
+    margin-bottom: 40px;
+  
+    border: 10px solid rgba(43, 128, 218, 0.863);
+  
+    padding: 10px;
+  
+    border-bottom-width: 4px;
+    border-bottom-color: rgba(40, 89, 83, 0.398);
+  
+    border-right-width: 4px;
+    border-right-color: rgba(18, 161, 180, 0.783);
+  
+    border-left-width: 4px;
+    border-left-color: rgba(18, 161, 180, 0.783);
+  }
+  
+  .nume-comp {
+    font-size: 150%;
+    font-weight: bold;
+    margin-top: 2%;
+    margin-bottom: 4%;
+  }
+  
+  .perioada {
+    margin-left: 2%;
+    font-size: 120%;
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
+  
+  
+  .data-desfasurare {
+    margin-left: 2%;
+    margin-right: 50px;
+    font-size: 100%;
+  }
+  
+  .ore-desfasurare {
+    margin-left: 2%;
+    margin-right: 50px;
+    font-size: 120%;
+  }
+  
+  
+  button {
+    margin-left: auto;
+  }
+  
+  .custom-btn {
+    width: 130px;
+    height: 40px;
+    color: white;
+    border-radius: 5px;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    position: relative;
+    display: block;
+    outline: none;
+  }
+  
+  .btn-1 {
+    background: rgb(80, 86, 175);
+    background: linear-gradient(0deg, rgb(75, 137, 199) 0%, rgb(7, 80, 144) 100%);
+    border: none;
+  }
+  
+  .btn-1:hover {
+    background: rgb(80, 86, 175);
+    background: linear-gradient(0deg, rgb(7, 80, 144) 0%, rgba(2, 126, 251, 1) 100%);
+  }
+  
+  .comp-anulata{
+    font-size: 120%;
+    color: rgba(99, 41, 119, 0.834);
+    text-align: right;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  
+  

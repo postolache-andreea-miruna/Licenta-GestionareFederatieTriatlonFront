@@ -1,0 +1,10 @@
+<div>
+    <ngb-rating [(rate)]="currentRate" [max]="5" [readonly]="true">
+        <ng-template let-fill="fill">
+            <span class="iconHeart" [class.filled] = "fill === 100">
+                <span class="selectIconHeart" [style.width.%]="fill"></span>
+                &hearts;
+            </span>
+        </ng-template>
+    </ngb-rating>
+  </div>

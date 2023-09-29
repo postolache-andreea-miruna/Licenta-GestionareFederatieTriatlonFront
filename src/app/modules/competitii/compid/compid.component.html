@@ -1,0 +1,83 @@
+<div class="background"></div>
+<app-navbar></app-navbar>
+<div class="pagina">
+    <p class="punct">.</p>
+
+    <div class="containerul">
+        <div class="nume">
+            <p> {{compId.numeCompetitie}}</p>
+        </div>
+
+        <div class="rating">
+            <app-recenzie-medie></app-recenzie-medie>
+        </div>
+    </div>
+    <div>
+        <p class="perioada">Perioada de desfășurare:
+            <span class="data-desfasurare">{{ compId.dataStart|date:"d/M/Y"}} <span
+                    *ngIf="!sameDates(compId.dataStart,compId.dataFinal)">- {{
+                    compId.dataFinal|date:"d/M/Y"}}</span></span>
+        </p>
+    </div>
+    <div class="countdown">
+        <div class="countdown-item">
+            <span id="days">{{days}}</span>
+            <div>Zile</div>
+        </div>
+        <div class="countdown-item">
+            <span id="hours">{{hours}}</span>
+            <div>Ore</div>
+        </div>
+        <div class="countdown-item">
+            <span id="minutes">{{minutes}}</span>
+            <div>Minute</div>
+        </div>
+        <div class="countdown-item">
+            <span id="seconds">{{seconds}}</span>
+            <div>Secunde</div>
+        </div>
+    </div>
+    <br>
+    <div class="countdown-text">
+        <span>{{text}}</span>
+    </div>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th class="table-text" scope="col">Taxă Participare</th>
+                <th class="table-text" scope="col">Tip</th>
+                <th class="table-text" scope="col">Număr minim participanți</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="table-text">{{compId.taxaParticipare}} lei</td>
+                <td class="table-text">{{compId.tipCompetitie}}</td>
+                <td class="table-text">{{compId.numarMinimParticipanti}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div 
+    style="display: flex;
+    flex-direction: row;
+    justify-content: center;">
+    <button *ngIf="hasToken === true" class="custom-btn btn-1" (click)="rezultate()">Rezultate competiție</button>
+
+    <button class="custom-btn btn-1" (click)="video()">Video competiție</button>
+
+    <button class="custom-btn btn-1" (click)="siteCompetitie()">Site oficial competiție</button>
+
+
+    <ng-container *ngIf="compId.numeCompetitie !== 'default nume'"  style="display: inline-block;">
+
+    <app-create-istoric [id]="id" [numeCompetitie]="compId.numeCompetitie"  style="display: inline-block;" *ngIf="logAntrenor() === true"></app-create-istoric>
+    </ng-container>
+    </div>
+
+    <p class="punct">.</p>
+
+    <app-locatie-comp></app-locatie-comp>
+    <app-recenzii-comp-id *ngIf="rol !== null"></app-recenzii-comp-id> 
+</div>

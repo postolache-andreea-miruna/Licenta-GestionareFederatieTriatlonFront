@@ -1,0 +1,47 @@
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Adaugă recenzie</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <div class="profil-detalii2">
+            <ng-container>
+                <main class="form-fisa">
+                    <form [formGroup]="recenzieAddForm" (ngSubmit)="saveAdd()" autocomplete="off" class="p-1 border">
+                        <div class="pozele">
+                            <br>
+                            <div>
+                                <ngb-rating [(rate)]="recenziePunctaj" [max]="5" [readonly]="false">
+                                    <ng-template let-fill="fill">
+                                        <span class="iconHeart" [class.filled]="fill === 100">
+                                            <span class="selectIconHeart" [style.width.%]="fill"></span>
+                                            &hearts;
+                                        </span>
+                                    </ng-template>
+                                </ngb-rating>
+                                <!-- <pre>Rate: <b>{{recenziePunctaj}}</b></pre> -->
+                            </div>
+                            <br>
+                            <div>
+                                <textarea cols="40" rows="8" formControlName = "text"></textarea>
+                            </div>
+                            <br>
+                        </div>
+
+                        <div class="d-grid mt-4 px-4">
+                            <button class="btn btn-warning" type="submit"
+                                style="font-weight: bold; margin-left:20%; margin-right: 20%;">Completare</button>
+                        </div>
+                    </form>
+                </main>
+            </ng-container>
+        </div>
+    </div>
+</ng-template>
+
+<div class="butonul" *ngIf ="recenzieData === true">
+<button class="custom-btn btn-1" (click)="modalAdRecenzie(content)">
+    Scrie o recenzie
+</button>
+</div>
+<p class="punct">.</p>

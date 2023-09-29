@@ -1,0 +1,39 @@
+<div class="background"></div>
+<app-admin-navbar></app-admin-navbar>
+<p>.</p>
+<p>.</p>
+
+<h3 style="color: black; font-weight: bold; margin-top: 6%; margin-left: 4%; text-align: center;">Formulare</h3>
+<form [formGroup]="anFilterForm" (ngSubmit)="filtreza()" autocomplete="off">
+    <div class="an">
+      <input formControlName="an" type="text" class="form-control" placeholder="an">
+      <label for="an">An(toti anii)</label>
+    </div>
+
+    <div class="butonul" >
+      <button class="btn btn-warning" type="submit" style="font-weight: bold; font-size: 120%;"
+        >Filtrează</button>
+    </div>
+</form>
+
+
+<div class="formulare">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Poză Profil</th>
+                <th>Aviz Medical</th>
+                <th>Buletin/Certificat de naștere</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let formular of formulare">
+
+                <td><img src="{{formular.pozaProfil}}" style="max-width:350px; max-height: 350px;"></td>
+                <td><img src="{{formular.avizMedical}}" style="max-width:350px; max-height: 350px;"></td>
+                <td><img src="{{formular.buletin_CertificatNastere}}" style="max-width:350px; max-height: 350px;"></td>
+               
+            </tr>
+        </tbody>
+    </table>
+</div>

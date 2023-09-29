@@ -1,0 +1,43 @@
+<form [formGroup]="sportiviiFilterForm" autocomplete="on"
+ style="background-color: rgba(241, 241, 241, 0.863); margin-left: 30%;margin-right: 30%; margin-top: 2%; border: 3px solid rgb(0, 0, 0);">
+ 
+ 
+ <p style="color: rgba(0, 255, 255, 0);">.</p>
+    <p style="font-size: 140%; font-weight: bold; text-align: center;margin-bottom: 2%;">Caută sportivi</p>
+
+    <div style="display: flex; flex-direction: row;margin-left: 25%;">
+    <div style="margin-right: 2%;">
+        
+    <label for="numeFam" style="font-size: 120%; font-weight: bold;">Nume Familie</label>
+    <input formControlName="numeFam" type="text" class="form-control" placeholder="nume">
+    </div>
+
+    <div  style="margin-right: 2%;">
+    <label for="prenume"style="font-size: 120%; font-weight: bold;">Prenume</label>
+    <input formControlName="prenume" type="text" class="form-control" placeholder="prenume">
+    </div>
+    </div>
+    <p style="color: rgba(0, 255, 255, 0);">.</p>
+
+</form>
+
+
+<div class="sportivii">
+  <div *ngFor="let sportiv of sportiviSearch" class="sportiv">
+  
+    <img src={{sportiv.urlPozaProfil}} alt="{{sportiv.nume}} {{sportiv.prenume}}" class="imagine-profil">
+  
+    <p class="nume-prenume">
+      {{sportiv.nume}}
+      {{sportiv.prenume}}
+    </p>
+    <hr style="border: 2px solid rgb(123, 177, 173);">
+    <button *ngIf="hasToken===true" class="custom-btn btn-1" (click)="goToSportiviDetails(sportiv.email)">Detalii</button>
+    <hr *ngIf="hasToken===true"style="border: 2px solid rgb(123, 177, 173);">
+
+    <div style="margin-left: 10%;">
+      <p class="detalii-text">Gen: {{sportiv.gen}}</p>
+      <p class="detalii-text" style="margin-bottom: 20%;">An naștere: {{sportiv.anNastere}}</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+<nav class="navbar navbar-light">
+
+		<a class="navbar-brand" href="http://localhost:4200/admin/home">
+				<img src="assets/photos/TriatlonSigla.png"
+				height="80vh" alt="" loading="lazy" class="logo" />
+		</a>
+		
+		<a class="link-bar" href="http://localhost:4200/admin/home">
+			Videoclip
+		</a>
+		<a class="link-bar" href="http://localhost:4200/cl/admin">
+			Club
+		</a>
+		<a class="link-bar" href="http://localhost:4200/pr/proba">
+			Probă
+		</a>
+		<a class="link-bar" href="http://localhost:4200/comp/admin">
+			Competiție
+		</a>
+		<a class="link-bar" href="http://localhost:4200/tip/admin">
+			Tip
+		</a>
+		<a class="link-bar" href="http://localhost:4200/recenz/admin">
+			Recenzie
+		</a>
+		<a class="link-bar" href="http://localhost:4200/com/admin">
+			Comentariu
+		</a>
+		<a class="link-bar" href="http://localhost:4200/form/admin">
+			Formular
+		</a>
+		<a class="link-bar" href="http://localhost:4200/post/admin">
+			Postare
+		</a>
+		<a *ngIf="!hasToken" class="link-bar" href="http://localhost:4200/auth/admin/login"style="margin-right: 2%;">Logare</a>
+		<button class="logout" (click)="onLogout()" *ngIf="hasToken === true"style="margin-right: 2%;">Logout</button>
+</nav>

@@ -1,0 +1,91 @@
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Înscrie sportivi</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <div class="profil-detalii2">
+            <ng-container>
+                <main class="form-fisa">
+                    <form [formGroup]="inscriereAddForm" (ngSubmit)="saveAdd()" autocomplete="off" class="p-1 border">
+                        <div class="pozele">
+                            <br>
+                            <div>
+                                <input formControlName="numarLegitimatie" type="text" class="form-control"
+                                    placeholder="Nr. Legitimatie" (input)="onLegitimatieChange($event)" required>
+                                <label for="numarLegitimatie">Nr. Legitimatie<span class="req">*</span></label>
+                            </div>
+                            <br>
+                            <div>
+                                <input formControlName="numeProba" type="text" class="form-control"
+                                    placeholder="Nume proba" required>
+                                <label for="numeProba">Nume proba<span class="req">*</span>: Sprint|Supersprint|Olimpic|Ironman|Half Ironman</label>
+                                <div *ngIf="!probaValida" class="text-danger">Nu este o probă validă</div>
+                            </div>
+                            <br>
+                            <div>
+                                <select class="select" formControlName="categorie" (change)="schimbareCateg()" style="font-size: 120%;" required>
+                                    <option value="" disabled selected>categorii</option>
+                                    <option value="" disabled selected style="color:brown">categorii MASCULIN</option>
+                                    <option value="COPII 5-8 MASCULIN">COPII 5-8 MASCULIN</option>
+                                    <option value="COPII 9-10 MASCULIN">COPII 9-10 MASCULIN</option>
+                                    <option value="COPII 11-13 MASCULIN">COPII 11-13 MASCULIN</option>
+                                    <option value="CADETI 14-15 MASCULIN">CADETI 14-15 MASCULIN</option>
+                                    <option value="JUNIORI II 16-17 MASCULIN">JUNIORI II 16-17 MASCULIN</option>
+                                    <option value="JUNIORI I 18-19 MASCULIN">JUNIORI I 18-19 MASCULIN</option>
+                                    <option value="UNDER 23 MASCULIN">UNDER 23 MASCULIN</option>
+                                    <option value="ELITE MASCULIN">ELITE MASCULIN</option>
+                                    <option value="AG 20-24 MASCULIN">AG 20-24 MASCULIN</option>
+                                    <option value="AG 25-29 MASCULIN">AG 25-29 MASCULIN</option>
+                                    <option value="AG 30-34 MASCULIN">AG 30-34 MASCULIN</option>
+                                    <option value="AG 40-44 MASCULIN">AG 40-44 MASCULIN</option>
+                                    <option value="AG 45-49 MASCULIN">AG 45-49 MASCULIN</option>
+                                    <option value="AG 50-54 MASCULIN">AG 50-54 MASCULIN</option>
+                                    <option value="AG 55-59 MASCULIN">AG 55-59 MASCULIN</option>
+                                    <option value="AG 60-64 MASCULIN">AG 60-64 MASCULIN</option>
+                                    <option value="AG +65 MASCULIN">AG +65 MASCULIN</option>
+
+
+                                    <option value="" disabled selected style="color:brown">categorii FEMININ</option>
+                                    <option value="COPII 5-8 FEMININ">COPII 5-8 FEMININ</option>
+                                    <option value="COPII 9-10 FEMININ">COPII 9-10 FEMININ</option>
+                                    <option value="COPII 11-13 FEMININ">COPII 11-13 FEMININ</option>
+                                    <option value="CADETI 14-15 FEMININ">CADETI 14-15 FEMININ</option>
+                                    <option value="JUNIORI II 16-17 FEMININ">JUNIORI II 16-17 FEMININ</option>
+                                    <option value="JUNIORI I 18-19 FEMININ">JUNIORI I 18-19 FEMININ</option>
+                                    <option value="UNDER 23 FEMININ">UNDER 23 FEMININ</option>
+                                    <option value="ELITE FEMININ">ELITE FEMININ</option>
+                                    <option value="AG 20-24 FEMININ">AG 20-24 FEMININ</option>
+                                    <option value="AG 25-29 FEMININ">AG 25-29 FEMININ</option>
+                                    <option value="AG 30-34 FEMININ">AG 30-34 FEMININ</option>
+                                    <option value="AG 40-44 FEMININ">AG 40-44 FEMININ</option>
+                                    <option value="AG 45-49 FEMININ">AG 45-49 FEMININ</option>
+                                    <option value="AG 50-54 FEMININ">AG 50-54 FEMININ</option>
+                                    <option value="AG 55-59 FEMININ">AG 55-59 FEMININ</option>
+                                    <option value="AG 60-64 FEMININ">AG 60-64 FEMININ</option>
+                                    <option value="AG +65 FEMININ">AG +65 FEMININ</option>
+                                </select>
+                                <div *ngIf="!categorieValida" class="text-danger">Sportivul nu se află în această
+                                    categorie</div>
+                            </div>
+                            <br>
+                        </div>
+
+                        <div class="d-grid mt-4 px-4">
+                            <button class="btn btn-warning" type="submit"
+                                style="font-weight: bold; margin-left:20%; margin-right: 20%;" [disabled]="!isFormComplete">Completare</button>
+                           
+                        </div>
+                    </form>
+                </main>
+            </ng-container>
+        </div>
+    </div>
+</ng-template>
+
+<div class="butonul">
+    <button class="custom-btn btn-1" (click)="modalAdInscriere(content)">
+        Înscrie sportiv
+    </button>
+</div>
+<p class="punct">.</p>

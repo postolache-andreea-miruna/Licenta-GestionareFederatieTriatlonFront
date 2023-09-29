@@ -1,0 +1,79 @@
+<div class="containerul" *ngIf="top3.length >= 2">
+    <div class="premianti">
+        <ul>
+            <li *ngFor="let club of top3">
+                <div>
+                    <div class="podium  podium-{{club.num-1}}">
+                        <div class="locuri"
+                            style="background-color:rgba(243, 228, 21, 0.884); border: 3px solid rgb(224, 192, 9);">
+                            {{club.num}}
+                        </div>
+                        <h4 style="font-weight: bold;">{{club.ierarh.numeClub}}</h4>
+                        <hr>
+                        <br>
+                        <p style="color: rgba(8, 4, 4, 0.74); font-size: 110%; font-weight: bold;">
+                            {{club.ierarh.puncte}} puncte</p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="containerul" *ngIf="top3.length === 1">
+    <div class="premiantii">
+        <ul>
+            <li *ngFor="let club of top3">
+                <div>
+                    <div class="podium  podium-{{club.num-1}}">
+                        <div class="locuri"
+                            style="background-color:rgba(243, 228, 21, 0.884); border: 3px solid rgb(224, 192, 9);">
+                            {{club.num}}
+                        </div>
+                        <h4 style="font-weight: bold;">{{club.ierarh.numeClub}}</h4>
+                        <hr>
+                        <br>
+                        <p style="color: rgba(8, 4, 4, 0.74); font-size: 110%; font-weight: bold;">
+                            {{club.ierarh.puncte}} puncte</p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+<div class="containerul" *ngIf="top3.length === 0">
+    <div class="premiantii">
+        <p style="font-size: 250%; text-align: center; padding: 15%; color: aliceblue; font-weight: 500;">Nu exisă
+            cluburi care să fi participat la această competiție.</p>
+    </div>
+</div>
+
+
+<div class="ierarhie-tot" *ngIf="ierarhie.length > 3">
+    <div *ngFor="let club of ierarhie.slice(3); let i = index" class="sportiv-container">
+        <!--.slice(3) inseamna ca incep de la elementul 4-->
+        <div class="sportiv-containerul">
+            <p style="margin-left: 2%;">{{i+4}}</p><!--+4 pt ca index a luat-o de la 0 si deja 3 au fost afisati-->
+
+            <div class="nume-club-container">
+                <p>{{club.numeClub}}</p>
+            </div>
+
+            <p style="margin-right: 2%;">{{club.puncte}} puncte</p>
+        </div>
+    </div>
+</div>
+<div  style="display: block; margin-left:40%;margin-right: 40%; margin-top: 2%;">
+    <canvas baseChart
+  [type]="'doughnut'"
+  [datasets]="dataPie"
+  [labels]="etichete"
+  [options]="pieOption"
+  width="400"
+  height="400"
+  >
+</canvas>
+</div>
+

@@ -1,0 +1,162 @@
+.imag{
+  margin-top: 3%;
+ width: 850px;
+ max-height: 800px;
+object-fit:contain;
+}
+
+.navbar-brand {
+  position: fixed;
+  top: 0%;
+  left: 1%;
+}
+
+.navbar {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 8%;
+  background-color: rgba(154, 192, 207, 0.988);
+  z-index: 1000;
+}
+
+.link-bar {
+  color: white;
+  font-size: 200%;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.link-bar:hover {
+  color: black;
+}
+
+.pozaDeProfil {
+  border-radius: 50%;
+}
+
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  // background-image: url('https://thumbs.dreamstime.com/b/triathlon-hand-drawn-outline-icons-set-sport-event-marathon-competition-team-club-materials-check-list-invitation-poster-123312666.jpg');
+  background-image: url('../../../../assets/photos/fundalTri1.png');
+  background-repeat: repeat;
+  background-size: contain;
+  z-index: -1;
+  opacity: 0.07;
+}
+
+.nume-prenume {
+  font-size: 200%;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 8%;
+  text-transform: uppercase;
+}
+
+.profil-id {
+  background-color: rgba(217, 228, 232, 0.685);
+  margin-left: 20%;
+  margin-right: 20%;
+  height: 50%;
+  overflow-y: auto;
+  overflow-x: auto;
+}
+
+.imag {
+  float: left;
+  margin-top: 2%;
+  margin-left: 2%;
+  margin-right: 8%;
+  width: 500px;
+  max-height: 800px;
+   object-fit:contain;
+}
+
+.details {
+  overflow: auto;
+  border-left: 12px solid rgba(150, 206, 227, 0.39);
+  padding-left: 8%;
+  padding-top: 8%;
+  height: 100%;
+}
+
+.details p {
+  margin-top: 2%;
+  font-size: 1.5em;
+  font-family: monospace;
+  font-weight: bold;
+}
+
+.custom-btn {
+  width: 200px;
+  height: 40px;
+  color:white;
+  border-radius: 5px;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  position:relative;
+  display: block;
+  outline: none;
+  font-size: 120%;
+}
+
+.btn-1 {
+  background: rgb(80, 86, 175);
+  background: linear-gradient(0deg, rgb(75, 137, 199) 0%, rgb(7, 80, 144) 100%);
+  border: none;
+}
+.btn-2 {
+  background: rgb(80, 86, 175);
+  background: linear-gradient(0deg, rgb(75, 137, 199) 0%, rgb(7, 80, 144) 100%);
+  border: none;
+}
+.btn-1:hover {
+  background: rgb(80, 86, 175);
+background: linear-gradient(0deg, rgb(7, 80, 144) 0%, rgba(2,126,251,1) 100%);
+}
+
+.profil-detalii{
+  font-size: 110%;
+  margin-top: 1%;
+  margin-left: 20%;
+  margin-right: 20%;
+
+  display: flex;
+  flex-direction: row;
+ }
+
+
+ .pozele{
+  font-size: 120%;
+  display: flex;
+  flex-direction: row;
+ }
+ .modal-header
+ {
+  background-color: white;
+  width: 150%;
+ }
+ .modal-body{
+  background-color: rgb(221, 238, 243);
+  width: 150%;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+ }
+
+ .btn-3 {
+  background: rgb(80, 86, 175);
+  background: linear-gradient(0deg, rgb(75, 137, 199) 0%, rgb(7, 80, 144) 100%);
+  border: none;
+}
+.btn-3:hover {
+  background: rgb(80, 86, 175);
+background: linear-gradient(0deg, rgb(7, 80, 144) 0%, rgba(2,126,251,1) 100%);
+}

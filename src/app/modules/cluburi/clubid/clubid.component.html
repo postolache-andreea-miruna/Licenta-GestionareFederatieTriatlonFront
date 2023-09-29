@@ -1,0 +1,34 @@
+<div class="backg"></div>
+<app-navbar></app-navbar>
+
+<div clas="container">
+  <div class="imagine">
+    <img src="{{clubId.urlPozaClub}}" width="500" height="400">
+  </div>
+  <p class="nume"> {{clubId.nume}}</p>
+
+  <div class="email-link">
+    <a class="email" href="mailto:{{clubId.email}}"><span class="text-email">Email:</span> {{clubId.email}}</a>
+  </div>
+
+  <div style="display:flex; margin-top: 2%;margin-left: 40%;"*ngIf="hasToken===true">
+    <button class="custom-btn btn-1" style="margin-right: 2%;" (click)="descriere()" >Detalii</button>
+    <button class="custom-btn btn-1" style="margin-right: 2%;" (click)="sportiviClub()">Sportivi</button>
+    <button class="custom-btn btn-1" (click)="antrenoriClub()">Antrenori</button>
+  </div>
+
+  <div *ngIf="descrierea === true" class="desc">
+   <p style="color: rgba(240, 248, 255, 0);">.</p>
+   <p style="margin: 2%;"> {{clubId.descriere}}</p>
+   <p style="color: rgba(240, 248, 255, 0);">.</p>
+  </div>
+
+</div>
+
+<div *ngIf="sportiClub === true">
+  <app-sportivi-club></app-sportivi-club>
+</div>
+
+<div *ngIf="antrClub === true ">
+  <app-antrenori-club></app-antrenori-club>
+</div>

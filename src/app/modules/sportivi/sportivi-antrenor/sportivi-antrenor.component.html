@@ -1,0 +1,50 @@
+
+      <form [formGroup]="sportiviFilterForm" (ngSubmit)="filtreza()" autocomplete="off">
+
+       
+
+        <select class="select" formControlName="gen">
+          <option value="toate genurile"  selected>toate genurile</option>
+          <option value="F">Feminin</option>
+          <option value="M">Masculin</option>
+        </select>
+
+        <br>
+        <br>
+
+
+        <div class="anNastere">
+          <input formControlName="anNastere" type="text" class="form-control" placeholder="anNastere">
+          <label for="anNastere">An naștere (toti anii)</label>
+        </div>
+
+        <div class="butonul" >
+          <button class="btn btn-warning" type="submit" style="font-weight: bold; font-size: 120%;"
+            >Filtrează</button>
+        </div>
+
+      </form>
+
+
+<div class="sportivii">
+  <div *ngFor="let sportiv of sportiviFilter" class="sportiv">
+
+    <img src={{sportiv.urlPozaProfil}} alt="{{sportiv.nume}} {{sportiv.prenume}}" class="imagine-profil">
+
+    <p class="nume-prenume">
+      {{sportiv.nume}}
+      {{sportiv.prenume}}
+    </p>
+    <hr style="border: 2px solid rgb(123, 177, 173);">
+    <button class="custom-btn btn-1" (click)="goToSportivDetails(sportiv.email)">Detalii</button>
+    <hr style="border: 2px solid rgb(123, 177, 173);">
+
+    <div style="margin-left: 10%;">
+      <p class="detalii-text">NR Legitimație: {{sportiv.numarLegitimatie}}</p>
+      <p class="detalii-text">Gen: {{sportiv.gen}}</p>
+      <p class="detalii-text">An naștere: {{sportiv.anNastere}}</p>
+      <p class="detalii-text">Email: {{sportiv.email}}</p>
+    </div>
+  </div>
+</div>
+

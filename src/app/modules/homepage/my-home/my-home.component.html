@@ -1,0 +1,307 @@
+<app-navbar></app-navbar>
+
+<div class="slide">
+	<ngb-carousel *ngIf="images">
+		<ng-template ngbSlide>
+			<div class="image">
+				<img class="image1" [src]="images[0]" alt="Random first slide" />
+			</div>
+			<div class="carousel-caption">
+				<h2>Federația Română de Triatlon</h2>
+				<h2>Înființată în anul 2012</h2>
+			</div>
+		</ng-template>
+		<ng-template ngbSlide>
+			<div class="image">
+				<img class="image1" [src]="images[1]" alt="Random second slide" />
+			</div>
+			<div class="carousel-caption">
+				<h2>Noua generație</h2>
+				<h2>Viitorul stă în mâinile lor</h2>
+			</div>
+		</ng-template>
+		<ng-template ngbSlide>
+			<div class="image">
+				<img class="image1" [src]="images[2]" alt="Random third slide" />
+			</div>
+			<div class="carousel-caption">
+				<h2>Înot</h2>
+				<h2>Prima probă</h2>
+			</div>
+		</ng-template>
+		<ng-template ngbSlide>
+			<div class="image">
+				<img class="image1" [src]="images[3]" alt="Random forth slide" />
+			</div>
+			<div class="carousel-caption">
+				<h2>Ciclism</h2>
+				<h2>A doua probă</h2>
+			</div>
+		</ng-template>
+
+		<ng-template ngbSlide>
+			<div class="image">
+				<img class="image1" [src]="images[4]" alt="Random forth slide" />
+			</div>
+			<div class="carousel-caption">
+				<h2>Alergare</h2>
+				<h2>Ultima probă</h2>
+			</div>
+		</ng-template>
+
+	</ngb-carousel>
+</div>
+<br>
+<div class="band">
+	<h1 class="triatlon-ce-este">Ce este triatlonul?</h1>
+</div>
+
+<div class="parent-container">
+	<div class="left-block">
+		<br>
+		<br>
+		<p class="text-info">Triatlonul pe scurt</p>
+		<br>
+		<p>Triatlonul este un sport complex. Acesta este format din 3 probe care se practică în următoarea ordine: înot,
+			ciclism și alergare.
+			Cele 3 probe sunt parcurse fără întrerupere, fiind legate prin punctele de tranziție care sunt de asemenea
+			cronometrate.</p>
+
+		<br>
+
+		<p>Încă din vara anului 2000, triatlonul face parte din sporturile olimpice.</p>
+
+		<br>
+
+		<p>Triatlonul cuprinde mai multe tipuri de curse, fiecare având distanțe diferite:</p>
+
+		<br>
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th class="text" scope="col">Tip</th>
+					<th class="text" scope="col">Înot</th>
+					<th class="text" scope="col">Ciclism</th>
+					<th class="text" scope="col">Alergare</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th class="text" scope="row">Ironman</th>
+					<td class="text">3,86 km</td>
+					<td class="text">180 km</td>
+					<td class="text">42,195 km</td>
+				</tr>
+				<tr>
+					<th class="text" scope="row">Half-Ironman</th>
+					<td class="text">1,9 km</td>
+					<td class="text">90 km</td>
+					<td class="text">21,1 km</td>
+				</tr>
+				<tr>
+					<th class="text" scope="row">Olimpic</th>
+					<td class="text">1,5 km</td>
+					<td class="text">40 km</td>
+					<td class="text">10 km</td>
+				</tr>
+				<tr>
+					<th class="text" scope="row">Sprint</th>
+					<td class="text">0,75 km</td>
+					<td class="text">20 km</td>
+					<td class="text">5 km</td>
+				</tr>
+				<tr>
+					<th class="text" scope="row">Supersprint</th>
+					<td class="text">0,4 km</td>
+					<td class="text">10 km</td>
+					<td class="text">2,5 km</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<br>
+		<br>
+
+	</div>
+	<div class="right-block">
+		<br>
+		<br>
+		<p class="text-info">Istoria triatlonului</p>
+		<br>
+
+		<p>Primele forme ale triatlonului datează încă din anul 1920, când au apărut
+			primele concursuri în Franța.</p>
+		<p>Prima competiție numită „La Course des Debrouillards” a constat într-o probă de
+			ciclism, urmată de alergarea cu obstacole și finalizată prin proba de înot care a
+			avut loc în Sena.</p>
+		<br>
+
+		<p>Cum de-a lungul timpului triatlonul a fost într-un proces de dezvoltare,
+			în anul 1974 și-a făcut apariția forma actuală de triatlon. Prima competiție
+			care a urmat regulile triatlonului modern s-a desfășurat în California
+			și a adunat la start un număr de 46 de concurenți care au alergat 10 km,
+			ciclat 8 km și înotat aproximativ 450 m.</p>
+
+		<br>
+		<p>În anul 1989 a fost fondată Uniunea Internațională de Triatlon. Mai mult, în acest an
+			a avut loc primul Campionat Mondial de Triatlon și a fost stabilită și distanța
+			oficială pentru acest sport: înot (1,5 km), ciclism (40 km), alergare (10 km).</p>
+
+		<br>
+		<p>În România, Federația Română de Triatlon a fost înființată în anul 2012.</p>
+		<br>
+		<br>
+		<br>
+		<br>
+
+
+	</div>
+</div>
+
+
+<div class="band-sponsori">
+	<h1 class="triatlon-ce-este">Sponsori</h1>
+</div>
+
+<div style="margin-left: 10%;">
+
+	<table class="table">
+		<tr>
+			<th>
+
+				<a href="https://www.orbea.com/ro-en/">
+					<!-- <img src="https://triatlonromania.ro/wp-content/uploads/2020/05/Orbea-logo.jpg"> -->
+					<img src="'../../../../../../assets/photos/orbea.png" style="width: 30%;">
+				</a>
+
+
+			</th>
+			<td>
+				<a href="https://www.trisport.ro/">
+					<!-- <img
+						src="https://trisport-120ac.kxcdn.com/image/cache/catalog/trisport_logo_blue2019-211x100-211x100.png"> -->
+						<img src="'../../../../../../assets/photos/trisport.png" style="width: 30%;">	
+				</a>
+			</td>
+			<td >
+				<a href="https://www.brenntag.com/en-ro/">
+					<!-- <img src="https://triatlonromania.ro/wp-content/uploads/2021/01/Brenntag-logo.png"> -->
+					<img src="'../../../../../../assets/photos/Brenntag.png" style="width: 30%;">
+				</a>
+			</td>
+		</tr>
+<br>
+<br>
+
+		<tr>
+			<th>
+				<a href="https://www.enel.ro/enel-energie/ro.html">
+					<!-- <img
+						src="https://www.enel.ro/etc.clientlibs/enel-ro/clientlibs/main/resources/img/enel-logo-color.png"> -->
+						<img src="'../../../../../../assets/photos/enel.png" style="width: 30%;">
+				</a>
+
+			</th>
+			<td>
+				<a href="https://www.spiuk.com/">
+					<!-- <img src="https://www.spiuk.com/pub/media/logo/stores/1/Spiuk.png"> -->
+					<img src="'../../../../../../assets/photos/SPIUK.png" style="width: 30%;">
+				</a>
+			</td>
+			<td>
+				<a href="https://www.facebook.com/goldnutritionromania/">
+					<!-- <img src="https://triatlonromania.ro/wp-content/uploads/2020/05/Gold-Nutrition-logo.jpg"> -->
+					<img src="'../../../../../../assets/photos/goldNutrition.png" style="width: 30%;">
+				</a>
+
+			</td>
+		</tr>
+		<br>
+		<br>
+		<tr>
+			<th>
+				<a href="https://www.nouanepasa.ro/">
+					<!-- <img
+						src="https://global-uploads.webflow.com/60f984be4b08cdbc98e3d7b4/615437e03eba59ce7f2aa7a9_Project%20icon.svg"> -->
+						<img src="'../../../../../../assets/photos/nouanepasa.png" style="width: 30%;">
+				</a>
+
+			</th>
+			<td>
+				<a href="https://www.garmin.com/ro-RO/">
+					<!-- <img
+						src="data:image/png;base64,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"> -->
+						<img src="'../../../../../../assets/photos/garmin.png" style="width: 30%;">
+				</a>
+
+			</td>
+			<td>
+
+				<a href="https://www.tyr-sport.ro/ro/">
+					<!-- <img src="https://www.tyr-sport.ro/img/tyr-logo-1667300251.jpg"> -->
+					<img src="'../../../../../../assets/photos/tyr.png" style="width: 20%;">
+				</a>
+
+			</td>
+		</tr>
+
+		<br>
+		<br>
+		<tr>
+			<th>
+				<a href="https://www.dendrio.com/">
+					<!-- <img src="https://www.dendrio.com/wp-content/uploads/2019/02/Dendrio-YJU-color.jpg"> -->
+					<img src="'../../../../../../assets/photos/dendrio.png" style="width: 40%;">
+				</a>
+
+			</th>
+			<td>
+
+				<a href="https://perskindol.ro/">
+					<!-- <img src="https://perskindol.ro/wp-content/uploads/logo-perskindol-yellow-outline.png"> -->
+					<img src="'../../../../../../assets/photos/perskindollogo.png" style="width: 25%;">
+				</a>
+
+			</td>
+			<td>
+				<a href="https://sloop.ro/">
+					<!-- <img src="https://triatlonromania.ro/wp-content/uploads/2022/12/sloop-logo.webp"> -->
+					<img src="'../../../../../../assets/photos/sloop.png" style="width: 30%;">
+				</a>
+
+			</td>
+		</tr>
+
+	</table>
+
+</div>
+
+<div class="band-final">
+	<br>
+	<p class="motto">Nu este important când începi, ci cât de departe ajungi! - Klosz Peter</p>
+	<table class="table1">
+		<tr>
+			<th>
+
+				<a href="https://www.instagram.com/triatlonromania/">
+					<!-- <img class="icons"
+						src="https://png.pngtree.com/png-vector/20221018/ourmid/pngtree-instagram-icon-png-image_6315974.png"> -->
+						<img class="icons"
+						 src="'../../../../../../assets/photos/instagram.png" style="width: 60%;">
+				</a>
+
+			</th>
+			<td>
+				<a href="https://www.facebook.com/frtri">
+					<img class="icons"
+						 src="'../../../../../../assets/photos/facebook.png" style="width: 60%; border: 1px solid white;border-radius: 50%;">
+				</a>
+			</td>
+			<td>
+				<a href="https://www.youtube.com/@frtrifederatiaromanadetria109">
+					<img class="icons"  src="'../../../../../../assets/photos/youtube.png" style="width: 50%;">
+				</a>
+			</td>
+		</tr>
+	</table>
+</div>

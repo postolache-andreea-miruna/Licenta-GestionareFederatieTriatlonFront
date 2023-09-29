@@ -1,0 +1,205 @@
+.image1 {
+    margin-top: 3%;
+    width: 100vw;
+    height: 96vh;
+    object-fit: cover;
+}
+
+.navbar-brand {
+    top: 0%;
+    left: 1%;
+    margin-left: 1%;
+}
+
+.navbar {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100px;
+    background-color: rgba(154, 192, 207, 0.988);
+    z-index: 1000;
+}
+
+
+.link-bar {
+    color: white;
+    font-size: 200%;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.link-bar:hover {
+    color: black;
+}
+
+.notif {
+    color: white;
+    font-size: 200%;
+    text-decoration: none;
+    font-weight: bold;
+    background-color: rgba(154, 192, 207, 0.988);
+    border: 0px;
+}
+
+.logout {
+    color: white;
+    font-size: 200%;
+    text-decoration: none;
+    font-weight: bold;
+    background-color: rgba(154, 192, 207, 0.988);
+    border: 0px;
+}
+
+.logout:hover {
+    color: rgb(183, 27, 27);
+}
+
+.pozaDeProfil {
+    border-radius: 50%;
+    width: 100px;
+}
+
+.notificare-detalii {
+    display: flex;
+    align-items: center;
+    margin-left: 20%;
+    background-color: rgba(255, 228, 196, 0.575);
+    margin-right: 20%;
+    margin-bottom: 2%;
+    border: 5px solid rgba(219, 143, 28, 0.452);
+    padding: 1%;
+
+    border-radius: 50px;
+
+}
+
+.notificare-detalii img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-right: 2%;
+    margin-left: 10%;
+}
+
+.notificare-detalii h2 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 8%;
+}
+
+.notificare-detaliile {
+    display: flex;
+    align-items: center;
+    margin-left: 20%;
+    background-color: rgba(255, 228, 196, 0.829);
+    margin-right: 20%;
+    margin-bottom: 2%;
+    border: 5px solid rgba(219, 143, 28, 0.664);
+    padding: 1%;
+
+    border-radius: 50px;
+
+}
+
+.notificare-detaliile img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-right: 2%;
+    margin-left: 10%;
+}
+
+.notificare-detaliile h2 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 8%;
+}
+
+.nume {
+    margin-right: 2%;
+    font-size: 160%;
+    font-weight: 700;
+}
+
+.titlu {
+    font-size: 180%;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    margin-bottom: 8%;
+}
+
+.citire {
+    margin-right: 2%;
+}
+
+.dataCreare {
+    margin-right: 2%;
+    text-align: center;
+    text-decoration: underline;
+    font-weight: 500;
+    font-size: 1.2em;
+}
+
+.cerc {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(236, 11, 79, 0.753);
+    border: 4px solid rgb(241, 37, 37);
+
+    position: absolute;
+    margin-left: 18px;
+    margin-top: 20px;
+    justify-content: center;
+    top: 0;
+    display: flex;
+    font-weight: bold;
+}
+.notif-necitita {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: rgba(236, 11, 79, 0.753);
+    border: 4px solid rgb(241, 37, 37);
+}
+
+.notif-necitita:hover {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: rgb(64, 172, 199);
+    border: 4px solid rgba(7, 116, 240, 0.664);
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background-image: url('../../../../assets/photos/background.jpg'); 
+    background-repeat: repeat;
+    background-size: contain;
+    z-index: -1;
+    opacity: 0.5;
+}
+
+.back {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    // background-image: url('https://thumbs.dreamstime.com/b/triathlon-hand-drawn-outline-icons-set-sport-event-marathon-competition-team-club-materials-check-list-invitation-poster-123312666.jpg');
+    background-image: url('../../../../assets/photos/fundalTri1.png');
+    background-repeat: repeat;
+    background-size: contain;
+    z-index: -1;
+    opacity: 0.07;
+}
+.modal-body{
+    background-color: rgb(221, 238, 243);
+}

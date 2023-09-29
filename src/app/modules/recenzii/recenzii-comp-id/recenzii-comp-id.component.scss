@@ -1,0 +1,97 @@
+  .nume-utiliz {
+      font-size: 160%;
+      font-weight: bold;
+      margin-top: 2%;
+      margin-bottom: 4%;
+  }
+
+  .recenzie-utiliz {
+    font-size: 145%;
+    font-style: italic;
+    margin-top: 2%;
+    margin-bottom: 4%;
+}
+
+  .recenzii {
+      position: relative;
+      overflow: hidden;
+
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+      margin-top: 2%;
+      width: 80%;
+      padding-left: 20px;
+      padding-right: 10px;
+  }
+
+  .recenzii-container {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      overflow: hidden;
+      align-items: center;
+  }
+
+  .recenzie {
+      background-color: rgb(240, 248, 255);
+      width: calc(33.33% - 10px);
+      min-width: 300px;
+      min-height: 300px;
+      margin-bottom: 40px;
+      border: 10px solid rgba(43, 128, 218, 0.068);
+      padding: 50px;
+      border-radius: 10%;
+
+  }
+
+  .nume-utiliz {
+      font-weight: bold;
+  }
+
+  .prev {
+      color: black;
+      padding: 8px 16px;
+      font-size: 25px;
+      border: none;
+      cursor: pointer;
+      margin-left: 5%;
+
+      background-color: rgba(0, 153, 255, 0.349);
+      border-radius: 40%;
+  }
+
+  .next {
+      color: black;
+      padding: 8px 16px;
+      font-size: 25px;
+      border: none;
+      cursor: pointer;
+      background-color: rgba(0, 153, 255, 0.349);
+      border-radius: 40%;
+  }
+
+  .prev:hover,
+  .next:hover {
+      background-color: #ddd;
+      border-radius: 40%;
+  }
+
+
+.iconHeart {
+    position: relative;
+    display: inline-block;
+    font-size: 2.5em;
+    padding-right: 0.5rem;
+    color: rgba(128, 128, 128, 0.623);
+}
+
+.filled{
+    color: rgba(211, 70, 129, 0.767);
+}
+
+.selectIconHeart{
+    position: absolute;
+    display: inline-block;
+    color: rgba(211, 70, 129, 0.767);
+}

@@ -1,0 +1,123 @@
+
+  
+  .pagina {
+  margin-top: 1%;
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 80%;
+    height: 200%;
+  }
+
+  .background {
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: rgba(0, 0, 0, 0.267);
+    background-repeat: repeat;
+    background-size: contain;
+    z-index: -1;
+  }
+
+  .adaugare-post {
+    text-decoration: none;
+    border: 0px;
+    background-color: rgba(255, 255, 255, 0);
+  }
+
+  .add-comm {
+    text-decoration: none;
+    border: 0px;
+    background-color: rgba(255, 255, 255, 0);
+  }
+
+  .add-comm:hover {
+    text-decoration: none;
+    border: 0px;
+    background-color: rgba(255, 255, 255, 0);
+    color: rgb(25, 86, 252);
+  }
+
+  .imagine-profil{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px solid black;
+  }
+
+  .nume-prenume{
+    margin-left: 2%;
+    font-size: 130%;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+
+  .poza-postata{
+    max-height: 800px;
+    height: auto;
+    object-fit:contain;
+    background-color: antiquewhite;
+  }
+  .modal-body{
+    background-color: rgb(221, 238, 243);
+   }
+
+  .adaugare-coment {
+    text-decoration: none;
+    border: 0px;
+    background-color: rgba(255, 255, 255, 0);
+    margin-bottom: 3%;
+  }
+
+  .adaugare-coment:hover {
+    text-decoration: none;
+    border: 0px;
+    color: rgb(1, 128, 247);
+  }
+
+  .delete-com {
+    text-decoration: none;
+    border: 0px;
+    background-color: rgba(255, 255, 255, 0);
+    margin-bottom: 3%;
+  }
+
+  .delete-com:hover {
+    text-decoration: none;
+    color: rgba(233, 81, 81, 0.89);
+    border-radius: 20px;
+    margin-bottom: 3%;
+  }
+
+  .edit-com {
+    text-decoration: none;
+    border: 0px;
+    background-color: rgba(255, 255, 255, 0);
+    margin-bottom: 3%;
+  }
+  .edit-com:hover {
+    text-decoration: none;
+    border: 0px;
+    color: rgba(0, 136, 141, 0.877);
+    margin-bottom: 3%;
+  }
+  .custom-btn {
+    display: inline-block;
+    width: 100;
+    height: 40px;
+    color:white;
+    border-radius: 5px;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    position:relative;
+    outline: none;
+  }
+  
+  .btn-1 {
+    background: rgb(80, 86, 175);
+    background: linear-gradient(0deg, rgb(75, 137, 199) 0%, rgb(7, 80, 144) 100%);
+    border: none;
+  }
+  .btn-1:hover {
+    background: rgb(80, 86, 175);
+  background: linear-gradient(0deg, rgb(7, 80, 144) 0%, rgba(2,126,251,1) 100%);
+  }

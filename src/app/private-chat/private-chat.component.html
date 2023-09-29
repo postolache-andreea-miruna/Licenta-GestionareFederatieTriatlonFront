@@ -1,0 +1,51 @@
+<div class="modal-header">
+    <h4 class="modal-title">{{toUser.nume}} {{toUser.prenume}}</h4>
+    <button type="button" class="btn-close" (click)="activeModal.dismiss('Cross click')"></button>
+</div>
+
+<div class="modal-body modal-xl">
+    <div class="card border-secondary">
+        <div class="card-header h3 text-muted text-center">Conversație</div>
+        <div class="card-body" style="background-color: rgba(255, 255, 255, 0.884);">
+
+            
+            <div style="overflow-y: scroll; height: 450px;" #scrollMe [scrollTop]="scrollMe.scrollHeight">
+
+                    <div class="card-text" *ngFor="let mesaj of mesaje">
+                        <div *ngIf="mesaj.emailUtilizator === toUser.email"
+                        class="receive-message">
+                            <p  style="color: rgba(255, 116, 2, 0.788);font-weight: bold;font-size: 80%;">{{mesaj.emailUtilizator.split("@")[0]}} </p>
+                            <hr>
+                            <div>
+                                <p class="ml-1">{{mesaj.mesajConversatie}}</p>
+                                <p class="ml-1" style="font-size: 0.8em;font-weight:bold;color: rgba(51, 24, 202, 0.63);">
+                                    {{mesaj.dataTrimitereMesaj|date:"d/M/Y"}} {{mesaj.dataTrimitereMesaj|date:"H:m"}}
+                                </p>
+                            </div>
+    
+                        </div>
+    
+                        <div *ngIf="mesaj.emailUtilizator !== toUser.email"
+                        class="send-message">
+                            <p style="color: rgba(0, 60, 255, 0.897); font-weight: bold;font-size: 80%;">{{mesaj.emailUtilizator.split("@")[0]}} </p>
+                            <hr>
+                            <div>
+                                <p class="ml-1">{{mesaj.mesajConversatie}}</p>
+                                <p class="ml-1" style="font-size: 0.8em;font-weight:bold;color: rgba(51, 24, 202, 0.63);">
+                                    {{mesaj.dataTrimitereMesaj|date:"d/M/Y"}} {{mesaj.dataTrimitereMesaj|date:"H:m"}}</p>
+                            </div>
+                            
+                        </div>
+    
+                    </div>
+               
+                <app-messages [messages]="chatService.privateMessages"></app-messages>
+            </div>
+        </div>
+        <div class="card-footer">
+            <app-chat-input (contentEmitter)="sendMessage($event)"></app-chat-input>
+        </div>
+
+    </div>
+
+</div>

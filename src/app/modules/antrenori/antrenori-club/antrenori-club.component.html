@@ -1,0 +1,45 @@
+<form [formGroup]="antrenoriFilterForm" autocomplete="on"
+ style="background-color: rgba(241, 241, 241, 0.863); margin-left: 30%;margin-right: 30%; margin-top: 2%; border: 3px solid rgb(0, 0, 0);">
+ 
+ 
+ <p style="color: rgba(0, 255, 255, 0);">.</p>
+    <p style="font-size: 140%; font-weight: bold; text-align: center;margin-bottom: 2%;">Caută antrenori</p>
+
+    <div style="display: flex; flex-direction: row;margin-left: 25%;">
+    <div style="margin-right: 2%;">
+        
+    <label for="numeFam" style="font-size: 120%; font-weight: bold;">Nume Familie</label>
+    <input formControlName="numeFam" type="text" class="form-control" placeholder="nume">
+    </div>
+
+    <div  style="margin-right: 2%;">
+    <label for="prenume"style="font-size: 120%; font-weight: bold;">Prenume</label>
+    <input formControlName="prenume" type="text" class="form-control" placeholder="prenume">
+    </div>
+    </div>
+    <p style="color: rgba(0, 255, 255, 0);">.</p>
+
+</form>
+
+
+
+
+
+<div class="antrenorii">
+    <div *ngFor="let antrenor of antrenoriSearch" class="antrenor">
+
+        <img src={{antrenor.urlPozaProfil}} alt="{{antrenor.nume}} {{antrenor.prenume}}" class="imagine-profil">
+
+        <p class="nume-prenume">
+            {{antrenor.nume}}
+            {{antrenor.prenume}}
+        </p>
+
+        <div style="text-align: center;">
+            <p class="detalii-text">Pregătire: {{antrenor.gradPregatire}}</p>
+        </div>
+        <hr *ngIf="hasToken===true"style="border: 2px solid rgb(123, 177, 173);">
+        <button  *ngIf="hasToken===true"  class="custom-btn btn-1" (click)="goToAntrenorDetails(antrenor.email)">Detalii</button>
+        <hr *ngIf="hasToken===true"style="border: 2px solid rgb(123, 177, 173);">
+    </div>
+</div>

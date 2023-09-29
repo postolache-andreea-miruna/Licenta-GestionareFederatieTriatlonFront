@@ -1,0 +1,40 @@
+<div class="background"></div>
+<app-navbar></app-navbar>
+<p>.</p>
+<p>.</p>
+<h2 class="title">Formularul {{id}}</h2>
+<h4 class="completare">Dată completare (Y-M-D): {{formId.completareFormular}}</h4>
+
+
+<div class="pagina">
+
+    <div class="formId-text">
+        <div class="formular-txt">
+            <p>Poza profil</p>
+        </div>
+        <div class="formular-txt">
+            <p>Aviz Medical</p>
+        </div>
+        <div class="formular-txt">
+            <p>Buletin/Certificat</p>
+        </div>
+    </div>
+
+    <div class="formId">
+        <div class="formular">
+            <img class="cod" src="{{formId.pozaProfil}}" (click)="afisare(formId.pozaProfil)">
+        </div>
+        <div class="formular">
+            <img class="cod" src="{{formId.avizMedical}}" (click)="afisare(formId.avizMedical)">
+        </div>
+        <div class="formular">
+            <img class="cod" src="{{formId.buletin_CertificatNastere}}"
+                (click)="afisare(formId.buletin_CertificatNastere)">
+        </div>
+    </div>
+
+    <div class="overlay" [ngClass]="{'show-img': afisareImag }" (click)="inchideImag()">
+        <img class="overlay-image" [src]="imagUrl">
+    </div>
+
+</div>

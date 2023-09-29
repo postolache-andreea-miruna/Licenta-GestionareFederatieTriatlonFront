@@ -1,0 +1,22 @@
+<div class="background"></div>
+  <app-navbar></app-navbar>
+  <p>.</p>
+<p class="nume-prenume">
+    {{antrenorId.nume}}
+    {{antrenorId.prenume}}
+  </p>
+<div class="profil-id">
+    <img class="imag" src="{{antrenorId.urlPozaProfil}}" alt="{{antrenorId.nume}} {{antrenorId.prenume}}">
+    <div class="details">
+        <p>Nume de familie: {{antrenorId.nume}}</p>
+        <p>Prenume: {{antrenorId.prenume}}</p>
+        <p>Grad Pregatire: {{antrenorId.gradPregatire}}</p>
+        <p>Club: {{antrenorId.numeClub}}</p>
+        <!-- <p>Email: {{antrenorId.email}}</p>         -->
+    </div>
+</div>
+<div>
+  <app-postari-utilizator-other-view></app-postari-utilizator-other-view>
+</div>
+
+

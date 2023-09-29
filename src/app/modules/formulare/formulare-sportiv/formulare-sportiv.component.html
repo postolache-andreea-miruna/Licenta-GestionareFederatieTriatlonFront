@@ -1,0 +1,18 @@
+<div class="background"></div>
+<app-navbar></app-navbar>
+<p>.</p>
+<p>.</p>
+<h3 class="title">Formularele mele</h3>
+<div class="formularele">
+    <div *ngFor="let formular of formulare" class="formular">
+        <p class="cod">Formularul {{formular.codFormular }}</p>
+        <hr style="border: 2px solid rgb(123, 177, 173);">
+
+        <p class="completare">Dată completare (Y-M-D): {{formular.completareForm}}</p>
+        <button class="custom-btn btn-1" (click)="formDetails(formular.codFormular)">
+            Despre
+        </button>
+    </div>
+</div>
+
+
